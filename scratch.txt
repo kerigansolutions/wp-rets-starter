@@ -1,0 +1,4 @@
+
+item.subMenuOpen = false;
+
+Vue.component('main-navigation', require('./components/MainNavigation.vue'));
