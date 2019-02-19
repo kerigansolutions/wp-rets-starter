@@ -6,12 +6,8 @@ use KeriganSolutions\KMARealtor;
 use Includes\Modules\KMAMail;
 
 require template_path('includes/ThemeControl.php');
-$wordplate = new ThemeControl();
-
-//to replace...
 require('post-types/contact_request.php');
-
-new KMARealtor\KMARealtor();
+$wordplate = new ThemeControl();
 
 // Set theme defaults.
 add_action('after_setup_theme', function () {

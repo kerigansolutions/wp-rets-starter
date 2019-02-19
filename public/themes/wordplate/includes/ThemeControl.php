@@ -1,4 +1,5 @@
 <?php
+use KeriganSolutions\KMARealtor;
 
 class ThemeControl
 {
@@ -46,6 +47,10 @@ class ThemeControl
     protected function enableModules()
     {
         new Includes\Modules\ContactForm();
+
+        if ( function_exists( 'acf_add_local_field_group' ) ) {
+            new KMARealtor\KMARealtor();
+        }
 
         if ( function_exists( 'acf_add_local_field_group' ) ) {
             $this->contactInfo  = $this->enableContactInfo();
