@@ -354,8 +354,10 @@ class ThemeControl
 
     protected function createCustomFields()
     {
-        $this->registerPageFields();
-        $this->registerFrontPageFields();        
+        if ( function_exists( 'acf_add_local_field_group' ) ) {
+            $this->registerPageFields();
+            $this->registerFrontPageFields();     
+        }   
     }
 
     protected function registerPageFields()
