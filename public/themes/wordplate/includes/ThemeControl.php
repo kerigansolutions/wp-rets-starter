@@ -104,37 +104,39 @@ class ThemeControl
 
     protected function enableContactInfo()
     {
-        (new KeriganSolutions\KMAContactInfo\ContactInfo())->addField([
-            'key'    => 'agent_id',
-            'label'  => 'Agent ID',
-            'name'   => 'agent_id',
-            'type'   => 'text',
-            'parent' => 'group_contact_info',
-        ])->addField([
-            'key'    => 'agent_name',
-            'label'  => 'Agent Name',
-            'name'   => 'agent_name',
-            'type'   => 'text',
-            'parent' => 'group_contact_info',
-        ])->addField([
-            'key'    => 'broker_name',
-            'label'  => 'Broker Name',
-            'name'   => 'broker_name',
-            'type'   => 'text',
-            'parent' => 'group_contact_info',
-        ])->addField([
-            'key'    => 'broker_link',
-            'label'  => 'Broker Link',
-            'name'   => 'broker_link',
-            'type'   => 'text',
-            'parent' => 'group_contact_info',
-        ])->addField([
-            'key'    => 'broker_logo',
-            'label'  => 'Broker Logo',
-            'name'   => 'broker_logo',
-            'type'   => 'image',
-            'parent' => 'group_contact_info',
-        ])->use();
+        if ( function_exists( 'acf_add_local_field_group' ) ) {
+            (new KeriganSolutions\KMAContactInfo\ContactInfo())->addField([
+                'key'    => 'agent_id',
+                'label'  => 'Agent ID',
+                'name'   => 'agent_id',
+                'type'   => 'text',
+                'parent' => 'group_contact_info',
+            ])->addField([
+                'key'    => 'agent_name',
+                'label'  => 'Agent Name',
+                'name'   => 'agent_name',
+                'type'   => 'text',
+                'parent' => 'group_contact_info',
+            ])->addField([
+                'key'    => 'broker_name',
+                'label'  => 'Broker Name',
+                'name'   => 'broker_name',
+                'type'   => 'text',
+                'parent' => 'group_contact_info',
+            ])->addField([
+                'key'    => 'broker_link',
+                'label'  => 'Broker Link',
+                'name'   => 'broker_link',
+                'type'   => 'text',
+                'parent' => 'group_contact_info',
+            ])->addField([
+                'key'    => 'broker_logo',
+                'label'  => 'Broker Logo',
+                'name'   => 'broker_logo',
+                'type'   => 'image',
+                'parent' => 'group_contact_info',
+            ])->use();
+        }
     }
 
     protected function enableSlider()
