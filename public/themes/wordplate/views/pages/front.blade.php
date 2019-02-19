@@ -41,7 +41,7 @@
             </div>
         </main>
 
-        @if($featuredListings)
+        @if(count($featuredListings) > 0)
         <div class="featured-listings-section bg-dark text-center text-white">
             <div class="section-title">
                 <h2>Featured Listings</h2>
