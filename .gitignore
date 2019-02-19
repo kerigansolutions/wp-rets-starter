@@ -10,5 +10,4 @@ package-lock.json
 Vagrantfile
 vendor/
 composer.lock
-public/themes/wordplate/assets/mix-manifest.json
 public/uploads/
