@@ -1,5 +1,4 @@
 languages
-plugins/*
 !plugins/index.php
 upgrade
 *.cache/*
