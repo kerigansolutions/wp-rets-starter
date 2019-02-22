@@ -1,4 +1,4 @@
-<footer class="sticky-footer bg-black py-4">
+<footer class="sticky-footer bg-dark py-4">
     <div class="container text-center">
         <h4>Contact Me</h4>
         <p class="m-0"><a href="tel:{{ get_field('phone', 'option') }}">{{ get_field('phone', 'option') }}</a></p>

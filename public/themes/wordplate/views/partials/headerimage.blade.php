@@ -1,5 +1,5 @@
 <div 
-    class="main-header-image"
+    class="main-header-image shadow"
     style="
         height: {{ get_theme_mod('top_section_height') }};
         background-image: url({{ wp_get_attachment_url(get_theme_mod('home_header_image')) }});

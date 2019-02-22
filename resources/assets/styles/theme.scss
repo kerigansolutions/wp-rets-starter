@@ -33,10 +33,17 @@ body {
 
             .headshot {
                 img {
-                    width: 250px;
-                    margin-top:-125px;
+                    width: 180px;
+                    height: 180px;
+                    margin-top:-90px;
                     position: relative;
                     z-index: 3;
+
+                    @media screen and (min-width: 768px){
+                        width: 220px;
+                        height: 220px;
+                        margin-top:-110px;
+                    }
                 }
             }
             
@@ -45,7 +52,7 @@ body {
                 flex-grow: 1;
             }
             
-            &.full-height {
+            &.full-height { 
                 height: 100vh;
             }
         }
@@ -87,7 +94,7 @@ body {
             color: $white;
 
             @media screen and (min-width: 768px) {
-                color: $dark;
+                color: $primary;
                 background-color: transparent;
             }
         }
@@ -156,14 +163,24 @@ ul.navbar-nav {
         }
 
     }
+
+    .mobile-menu {
+        background: $primary;
+    }
 }
+
+
 
 .quick-search {
     text-align: left;
-    // background-color: rgba(50,50,50,.75);
 
     select {
         min-width: 210px;
+        box-shadow: 0 0 1rem rgba(0,0,0,.1);
+    }
+
+    .btn {
+        box-shadow: 0 0 1rem rgba(0,0,0,.1);
     }
 }
 
@@ -194,6 +211,12 @@ main {
     }
 }
 
+.status-update {
+    a {
+        color: $white;
+    }
+}
+
 // Support Content
 .header-image {
     background-color: $dark;
@@ -213,7 +236,7 @@ main {
 .slider-container,
 .main-header-image {
     position: relative;
-    min-height: 300px;
+    min-height: 475px;
     overflow: hidden;
     z-index: 0;
     background-size: cover;
@@ -240,6 +263,20 @@ main {
         z-index: 2;
         justify-content: center;
         text-align: center;
+
+        h2 {
+            color: $white;
+            font-size: 2rem;
+            line-height: 2rem;
+            margin: 0;
+            padding: 1rem 0 0;
+            text-shadow: 0 0 1rem rgba(0,0,0,.1);
+
+            @media screen and (min-width: 768px){
+                font-size: 3rem;
+                line-height: 3rem;
+            }
+        }
     }
 }
  

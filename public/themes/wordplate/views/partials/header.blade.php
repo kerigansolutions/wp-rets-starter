@@ -15,17 +15,17 @@
                         >
                     </a>
                 @else
-                    <a class="logo d-flex mx-auto" href="/">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mr-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
-                        REAL ESTATE AGENT
+                    <a class="logo d-flex mx-auto align-items-center text-primary" href="/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 97.51 63.2" fill="currentColor" class="d-block mr-2 text-secondary"><path d="M47,35.75h5.64v5.73H46.88V35.75Zm14.5,0v5.73H55.74V35.75h5.73Zm-9.86-8.86h1v6H46.84l.06-.31h-.06l0-.19V26.89Zm9.83,5.73h.06l0-.19V26.89H55.74v6H61.5ZM0,33.41v7.14H23.72l1.05-1L54.17,10.1,80.94,36.88V63.2h7.15V44l4.37,4.37,5.05-5-16-16V13.11h2.83V6H71.57v7.15H74.4v7.12L56.7,2.53,54.17,0,28.07,7.54Z"/></svg>
+                        {{ get_bloginfo() }}
                     </a>
                 @endif
             </div>
             
             <div class="flex-grow-1">
                 <div class="contact-nav py-2">
-                    <a class="mail top-button" href="mailto:{{ get_field('email', 'option') }}"><i class="fa fa-envelope d-inline-block mx-2" aria-hidden="true"></i><span class="d-none d-md-inline-block">{{ get_field('email', 'option') }}</span></a>
-                    <a class="call top-button" href="tel:{{ get_field('phone', 'option') }}"><i class="fa fa-phone d-inline-block mx-2" aria-hidden="true"></i><span class="d-none d-md-inline-block">{{ get_field('phone', 'option') }}</span></a>
+                    <a class="mail top-button" href="mailto:{{ get_field('email', 'option') }}"><i class="fa fa-envelope d-inline-block mx-2" aria-hidden="true"></i><span class="d-none d-md-inline-block text-primary">{{ get_field('email', 'option') }}</span></a>
+                    <a class="call top-button" href="tel:{{ get_field('phone', 'option') }}"><i class="fa fa-phone d-inline-block mx-2" aria-hidden="true"></i><span class="d-none d-md-inline-block text-primary">{{ get_field('phone', 'option') }}</span></a>
                     <button v-on:click="toggleMenu" class="d-xl-none btn btn-secondary btn-sm" type="button" data-toggle="collapse" data-target="#mobilemenu" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                         MENU <i
                                 class="fa" 

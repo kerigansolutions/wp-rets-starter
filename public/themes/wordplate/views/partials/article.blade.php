@@ -19,7 +19,7 @@
 @endif
 
 @if(get_post_format() == 'status')
-<div class="card bg-primary">
+<div class="card bg-primary status-update">
     <div class="card-body text-white">
         <small class="text-white">{{ get_the_date() }}</small>
         <p class="display-4">{{ the_title() }}</p>

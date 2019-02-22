@@ -178,7 +178,7 @@
 							</div>
                         </div>
 
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-5 mb-4">
                             <div class="card listing-detail">
 								<div class="card-header">Area Information</div>
 								<table class="table">
@@ -231,7 +231,7 @@
 						    <div class="card listing-detail">
 								<div class="card-header">Map Location</div>
                                 <div class="card-body">
-								    <p class="m-0">Due to new roads in our area, some properties may now show up in exactly the right location.</p>
+								    <p class="m-0">Due to new roads in our area, some properties may not show up in exactly the right location.</p>
                                 </div>
 								<div class="listing-map-frame">
 									<div class="embed-responsive embed-responsive-4by3">
@@ -249,7 +249,6 @@
 							</div>
                         </div>
                     </div>
-                    <pre>{{ print_r($listing) }}</pre>
                 </article>
             </div>
         </main>

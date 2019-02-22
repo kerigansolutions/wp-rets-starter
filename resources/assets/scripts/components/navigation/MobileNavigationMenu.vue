@@ -56,7 +56,6 @@
 .mobile-menu {
     transition: all ease-in 1s;
     display: none;
-    background-color: #20c997;
     
     &.open {
         display: block;

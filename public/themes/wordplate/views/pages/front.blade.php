@@ -20,7 +20,7 @@
         
         @if($headshot != '')
         <div class="headshot d-flex justify-content-center" >
-            <img src="{{ $headshot }}" class="rounded-circle" style="width:250px; margin-top:-125px;">
+            <img src="{{ $headshot }}" class="rounded-circle shadow">
         </div>
         @endif
 
@@ -29,7 +29,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-10 col-xl-9">
                         <article class="front pb-4 text-center">
-                            <header>
+                            <header class="pt-1">
                                 <h1>{{ the_title() }}</h1>
                             </header>
                             
@@ -42,7 +42,7 @@
         </main>
 
         @if(count($featuredListings) > 0)
-        <div class="featured-listings-section bg-dark text-center text-white">
+        <div class="featured-listings-section bg-secondary text-center text-white">
             <div class="section-title">
                 <h2>Featured Listings</h2>
             </div>
@@ -68,7 +68,7 @@
                 </carousel>
             </div>
             <div class="section-button">
-                <a class="btn btn-primary" href="/my-listings" >All My Listings</a>
+                <a class="btn btn-light" href="/my-listings" >All My Listings</a>
             </div>
         </div>
         @endif
