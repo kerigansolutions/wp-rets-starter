@@ -1,6 +1,8 @@
 // Full page Layout
 html {
     height: 100%;
+    width: 100%;
+    overflow-x: hidden;
     
     // Button overrides
     .btn {
@@ -14,7 +16,7 @@ html {
         }
     }
 
-    * {
+    * { 
         text-rendering: unset;
     }
 }
@@ -423,6 +425,7 @@ article h2,
 // Footer
 footer {
     color: #FFF;
+    border-top: 5px solid $primary;
 
     a {
         color: #FFF;
@@ -541,7 +544,7 @@ footer {
 
         .status-flag {
             color: $white;
-            background-color: $secondary;
+            background-color: $info;
             position: absolute;
             z-index: 4;
             font-size: .9em;

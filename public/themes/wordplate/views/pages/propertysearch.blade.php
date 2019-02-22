@@ -18,7 +18,7 @@
                 @if(count($results) > 0)
                     <hr>
                     <div class="row justify-content-between mb-4">
-                        <div class="col">
+                        <div class="col-auto">
                             <small class="text-muted">
                                 Showing {{ $resultsMeta->count }}
                                 of {{ number_format($resultsMeta->total) }} |

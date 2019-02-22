@@ -13188,6 +13188,8 @@ a.text-black:focus {
 
 html {
   height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 html .btn {
@@ -13640,6 +13642,7 @@ article h2::after,
 
 footer {
   color: #FFF;
+  border-top: 5px solid #fd7e14;
 }
 
 footer a {
@@ -13764,7 +13767,7 @@ footer .siteby {
 
 #app .listing .status-flag {
   color: #fff;
-  background-color: #22282f;
+  background-color: #17a2b8;
   position: absolute;
   z-index: 4;
   font-size: .9em;

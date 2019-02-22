@@ -58,9 +58,9 @@
     display: none;
     
     &.open {
-        display: block;
+        display: flex;
         height: 100vh;
-        width:100%;
+        width: 100%;
         z-index: 5;
         padding: 8rem 2rem 2rem;
         color: #FFF;
