@@ -1,0 +1,18 @@
+{
+    "name": "kerigansolutions/kma-slider-module",
+    "description": "Home page slider module",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "programmer-man",
+            "email": "bryan@kerigan.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "KeriganSolutions\\KMASlider\\": "src"
+        }
+    }
+}

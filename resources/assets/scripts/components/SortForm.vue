@@ -1,6 +1,6 @@
 <template>
     <form class="form" method="get" >
-        <input type="hidden" name="q" value="search" >
+        <input type="hidden" name="q"  >
         <input v-if="searchTerms.omni" type="hidden" name="omni" :value="searchTerms.omni" >
         <input v-if="searchTerms.area" type="hidden" name="area" :value="searchTerms.area" >
         <input v-if="searchTerms.property_type" type="hidden" name="propertyType" :value="searchTerms.propertyType" >

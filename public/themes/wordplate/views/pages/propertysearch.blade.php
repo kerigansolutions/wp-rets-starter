@@ -11,6 +11,8 @@
                     <header class="pt-0 pt-xl-5 text-center text-md-left">
                         <h1>{{ the_title() }}</h1>
                     </header>
+                    {{ the_content() }}
+
                 </article>
 
                 <search-bar v-bind:search-terms='{{ $currentRequest }}' class="search-bar"></search-bar>

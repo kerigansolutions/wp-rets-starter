@@ -39014,7 +39014,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("form", { staticClass: "form", attrs: { method: "get" } }, [
-    _c("input", { attrs: { type: "hidden", name: "q", value: "search" } }),
+    _c("input", { attrs: { type: "hidden", name: "q" } }),
     _vm._v(" "),
     _vm.searchTerms.omni
       ? _c("input", {

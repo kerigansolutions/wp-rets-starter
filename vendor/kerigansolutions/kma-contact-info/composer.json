@@ -1,0 +1,18 @@
+{
+    "name": "kerigansolutions/kma-contact-info",
+    "description": "A simple contact info module from KMA",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daron Adkins",
+            "email": "daron@kerigan.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "KeriganSolutions\\KMAContactInfo\\": "src"
+        }
+    }
+}
