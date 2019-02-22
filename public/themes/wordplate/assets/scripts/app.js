@@ -40796,7 +40796,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "btn btn-default",
+              staticClass: "btn btn-light",
               on: {
                 click: function($event) {
                   $event.preventDefault()

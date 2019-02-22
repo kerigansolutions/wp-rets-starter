@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-default" @click.prevent="formSubmitted">Send Message &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                    <button class="btn btn-primary" @click.prevent="formSubmitted">Send Message &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></button>
                 </div>
             </div>
         </form>
