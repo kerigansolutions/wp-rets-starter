@@ -12,9 +12,5 @@
 
             </article>
         </div>
-
-        <div class="col pt-5" >
-            @include('partials.sidebar')
-        </div>
     </div>
 </div>

@@ -5,4 +5,5 @@ This is a starter template for KMA Real Estate Agent websites. This is not the a
 1. Fork this repo.
 2. Create MySQL database.
 3. ```cp .env.example .env``` and fill with own information. Make sure to update salts.
-4. ```npm i``` 
+4. ```composer install```
+5. ```npm i``` 

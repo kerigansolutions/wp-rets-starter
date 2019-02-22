@@ -20,7 +20,7 @@
         
         @if($headshot != '')
         <div class="headshot d-flex justify-content-center" >
-            <img src="{{ $headshot['url'] }}" class="rounded-circle" style="width:250px; margin-top:-125px;">
+            <img src="{{ $headshot }}" class="rounded-circle" style="width:250px; margin-top:-125px;">
         </div>
         @endif
 

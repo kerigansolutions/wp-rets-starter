@@ -6,7 +6,6 @@ class ThemeControl
     public $team;
     public $portfolio;
     public $testimonials;
-    public $contactInfo;
     public $slider;
     public $social;
     public $themeSettings;
@@ -31,11 +30,12 @@ class ThemeControl
         require template_path('includes/plugins/branded-login.php');
         require template_path('includes/plugins/editor-filters.php');
 
-        //enable theme modules
-        $this->enableModules();
-
-        // create ACF fields
-        $this->createCustomFields();
+        if ( function_exists( 'acf_add_local_field_group' ) ) {
+            //enable theme modules
+            $this->enableModules();
+            // create ACF fields
+            $this->createCustomFields();
+        }
 
     }
 
@@ -48,13 +48,11 @@ class ThemeControl
     {
         new Includes\Modules\ContactForm();
 
-        if ( function_exists( 'acf_add_local_field_group' ) ) {
-            new KMARealtor\KMARealtor();
-        }
-
-        if ( function_exists( 'acf_add_local_field_group' ) ) {
-            $this->contactInfo  = $this->enableContactInfo();
-        }
+        new KeriganSolutions\KMARealtor\RealtorDashboard();
+        new KeriganSolutions\KMARealtor\RealtorListings();
+        (new KeriganSolutions\KMARealtor\FeaturedListings())->use();
+        (new KeriganSolutions\KMARealtor\Listing())->use();
+        $this->enableContactInfo();
         
         if (get_theme_mod('enable_team')){
             $this->team = $this->enableTeam();
@@ -124,6 +122,13 @@ class ThemeControl
             'type'   => 'text',
             'parent' => 'group_contact_info',
         ])->addField([
+            'key'    => 'agent_photo',
+            'label'  => 'Agent Photo',
+            'name'   => 'agent_photo',
+            'type'   => 'image',
+            'return_format' => 'id',
+            'parent' => 'group_contact_info',
+        ])->addField([
             'key'    => 'broker_name',
             'label'  => 'Broker Name',
             'name'   => 'broker_name',
@@ -140,6 +145,7 @@ class ThemeControl
             'label'  => 'Broker Logo',
             'name'   => 'broker_logo',
             'type'   => 'image',
+            'return_format' => 'id',
             'parent' => 'group_contact_info',
         ])->use();
     }
@@ -486,7 +492,7 @@ class ThemeControl
                             'class' => '',
                             'id' => '',
                         ),
-                        'default_value' => '',
+                        'default_value' => 'col col-md-6',
                         'placeholder' => '',
                         'prepend' => '',
                         'append' => '',
@@ -497,31 +503,20 @@ class ThemeControl
                         'label' => 'Background Image ' .$i,
                         'name' => 'image_' .$i,
                         'type' => 'image',
-                        'instructions' => '',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(
                             'width' => '33',
-                            'class' => '',
-                            'id' => '',
                         ),
                         'return_format' => 'array',
                         'preview_size' => 'thumbnail',
                         'library' => 'all',
-                        'min_width' => '',
-                        'min_height' => '',
-                        'min_size' => '',
-                        'max_width' => '',
-                        'max_height' => '',
-                        'max_size' => '',
-                        'mime_types' => '',
                     ),
                     array(
                         'key' => 'box_color_' .$i,
                         'label' => 'Box Color',
                         'name' => 'box_color_' .$i,
-                        'type' => 'color_picker',
-                        'instructions' => '',
+                        'type' => 'text',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(
@@ -530,13 +525,16 @@ class ThemeControl
                             'id' => '',
                         ),
                         'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
                     ),
                     array(
                         'key' => 'border_color_' .$i,
                         'label' => 'Border Color',
                         'name' => 'border_color_' .$i,
-                        'type' => 'color_picker',
-                        'instructions' => '',
+                        'type' => 'text',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(
@@ -544,14 +542,17 @@ class ThemeControl
                             'class' => '',
                             'id' => '',
                         ),
-                        'default_value' => '',
+                        'default_value' => '#000',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
                     ),
                     array(
                         'key' => 'text_color_' .$i,
                         'label' => 'Text Color',
                         'name' => 'text_color_' .$i,
-                        'type' => 'color_picker',
-                        'instructions' => '',
+                        'type' => 'text',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(
@@ -559,13 +560,17 @@ class ThemeControl
                             'class' => '',
                             'id' => '',
                         ),
-                        'default_value' => '',
+                        'default_value' => '#000',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
                     ),
                     array(
                         'key' => 'overlay_color_' .$i,
                         'label' => 'Overlay Color',
                         'name' => 'overlay_color_' .$i,
-                        'type' => 'color_picker',
+                        'type' => 'text',
                         'instructions' => '',
                         'required' => 0,
                         'conditional_logic' => 0,
@@ -574,14 +579,17 @@ class ThemeControl
                             'class' => '',
                             'id' => '',
                         ),
-                        'default_value' => '',
+                        'default_value' => 'col col-md-6',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
                     ),
                     array(
                         'key' => 'text_' .$i,
                         'label' => 'Text',
                         'name' => 'text_' .$i,
                         'type' => 'textarea',
-                        'instructions' => '',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(
@@ -593,14 +601,12 @@ class ThemeControl
                         'placeholder' => '',
                         'maxlength' => '',
                         'rows' => '2',
-                        'new_lines' => '',
                     ),
                     array(
                         'key' => 'link_' .$i,
                         'label' => 'Link',
                         'name' => 'link_' .$i,
                         'type' => 'url',
-                        'instructions' => '',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(
@@ -610,6 +616,9 @@ class ThemeControl
                         ),
                         'default_value' => '',
                         'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
                     ),
                     array(
                         'key' => 'link_text_' .$i,
@@ -620,11 +629,10 @@ class ThemeControl
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(
-                            'width' => '33',
-                            'class' => '',
+                            'width' => '33','class' => '',
                             'id' => '',
                         ),
-                        'default_value' => '',
+                        'default_value' => 'Learn More',
                         'placeholder' => '',
                         'prepend' => '',
                         'append' => '',

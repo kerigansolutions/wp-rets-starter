@@ -13,10 +13,5 @@
                 {{ the_content() }}
             </article>
         </div>
-
-        <div class="col pt-4" >
-            @include('partials.sidebar')
-        </div>
-
     </div>
 </div>

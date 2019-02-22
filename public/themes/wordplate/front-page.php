@@ -20,7 +20,7 @@ $featuredListings = (new KeriganSolutions\KMARealtor\FeaturedListings)->getListi
 
 bladerunner('views.pages.front', [
     'themeSettings'     => $wordplate->themeSettings,
-    'headshot'          => get_field('image', 'option'),
+    'headshot'          => wp_get_attachment_url(get_field('agent_photo', 'option'),'medium'),
     'featuredListings'  => true,
     'featureBoxes'      => $featureBoxes,
     'featuredListings'  => $featuredListings

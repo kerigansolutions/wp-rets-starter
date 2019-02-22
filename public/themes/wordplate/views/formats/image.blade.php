@@ -10,11 +10,6 @@
                 {{ the_content() }}
             </article>
         </div>
-
-        <div class="col" >
-            @include('partials.sidebar')
-        </div>
-
     </div>
 </div>
 

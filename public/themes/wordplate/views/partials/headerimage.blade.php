@@ -5,7 +5,6 @@
         background-image: url({{ wp_get_attachment_url(get_theme_mod('home_header_image')) }});
     " 
     >
-    @if(get_theme_mod('use_overlay_text'))
     <div class="container">
         <div 
             class="overlay-content"
@@ -16,6 +15,7 @@
         {!! apply_filters('the_content', (get_post(get_theme_mod('overlay_content')))->post_content) !!}
         </div>
     </div>
+    @if(get_theme_mod('use_overlay_text'))
     <div 
         class="overlay"
         style="

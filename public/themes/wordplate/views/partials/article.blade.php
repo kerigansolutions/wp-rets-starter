@@ -23,6 +23,7 @@
     <div class="card-body text-white">
         <small class="text-white">{{ get_the_date() }}</small>
         <p class="display-4">{{ the_title() }}</p>
+        {{ the_content() }}
     </div>
 </div>
 @endif

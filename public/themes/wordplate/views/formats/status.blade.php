@@ -9,8 +9,6 @@
                 <p class="display-4">{{ $headline != '' ? $headline : the_title() }}</p>
 
                 {{ the_content() }}
-
-                @include('partials.sidebar')
                 
             </article>
         </div>
