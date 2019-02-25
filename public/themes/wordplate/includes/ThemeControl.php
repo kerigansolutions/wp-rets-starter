@@ -55,15 +55,19 @@ class ThemeControl
         $this->enableContactInfo();
         
         if (get_theme_mod('enable_team')){
-            $this->team = $this->enableTeam();
+            $this->enableTeam();
+        }
+
+        if (get_theme_mod('enable_testimonials')){
+            $this->enableTestimonials();
         }
 
         if (get_theme_mod('header_feature') == 'slider'){
-            $this->slider = $this->enableSlider();
+            $this->enableSlider();
         }
 
         if (get_theme_mod('enable_social')){
-            $this->social = $this->enableSocialSettings();
+            $this->enableSocialSettings();
         }
     }
 
@@ -155,6 +159,11 @@ class ThemeControl
         new KeriganSolutions\KMASlider\KMASliderModule();
     }
 
+    protected function enableTestimonials()
+    {
+        (new KeriganSolutions\KMATestimonials\Testimonial())->use();
+    }
+
     protected function enableSocialSettings()
     {
         $socialLinks = new KeriganSolutions\SocialMedia\SocialSettingsPage();
@@ -193,6 +202,11 @@ class ThemeControl
         $wp_customize->add_setting( 'header_feature', array(
             'capability' => 'edit_theme_options',
             'default' => 'slider',
+        ) );
+
+        $wp_customize->add_setting( 'enable_testimonials', array(
+            'capability' => 'edit_theme_options',
+            'default' => false,
         ) );
 
         $wp_customize->add_setting( 'enable_team', array(
@@ -247,12 +261,6 @@ class ThemeControl
 
         $wp_customize->add_control( 'enable_social', array(
             'label' => __( 'Enable Social Icons' ),
-            'type' => 'checkbox',
-            'section' => 'wordplate_theme_settings'
-        ) );
-
-        $wp_customize->add_control( 'enable_contact', array(
-            'label' => __( 'Enable Contact Controls' ),
             'type' => 'checkbox',
             'section' => 'wordplate_theme_settings'
         ) );

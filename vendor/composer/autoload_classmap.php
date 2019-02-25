@@ -439,6 +439,7 @@ return array(
     'KeriganSolutions\\KMARealtor\\Search' => $vendorDir . '/kerigansolutions/kma-rafgc-realtor/src/Search.php',
     'KeriganSolutions\\KMASlider\\KMASliderModule' => $vendorDir . '/kerigansolutions/kma-slider-module/src/KMASliderModule.php',
     'KeriganSolutions\\KMATeam\\Team' => $vendorDir . '/kerigansolutions/kma-team-module/src/Team.php',
+    'KeriganSolutions\\KMATestimonials\\Testimonial' => $vendorDir . '/kerigansolutions/kma-testimonials/src/Testimonial.php',
     'KeriganSolutions\\SocialMedia\\SocialSettingsPage' => $vendorDir . '/kerigansolutions/kma-social-icons/src/SocialSettingsPage.php',
     'Psr\\Container\\ContainerExceptionInterface' => $vendorDir . '/psr/container/src/ContainerExceptionInterface.php',
     'Psr\\Container\\ContainerInterface' => $vendorDir . '/psr/container/src/ContainerInterface.php',

@@ -1157,6 +1157,41 @@
         "description": "A simple team module from KMA"
     },
     {
+        "name": "kerigansolutions/kma-testimonials",
+        "version": "1.8.1",
+        "version_normalized": "1.8.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kerigansolutions/kma-testimonials.git",
+            "reference": "b7b6c8eb48177012dc47f7f811876bf77ece9975"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kerigansolutions/kma-testimonials/zipball/b7b6c8eb48177012dc47f7f811876bf77ece9975",
+            "reference": "b7b6c8eb48177012dc47f7f811876bf77ece9975",
+            "shasum": ""
+        },
+        "time": "2019-02-25T01:07:40+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "KeriganSolutions\\KMATestimonials\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daron Adkins",
+                "email": "daron@kerigan.com"
+            }
+        ],
+        "description": "Simple Testimonials module for wordpress"
+    },
+    {
         "name": "nesbot/carbon",
         "version": "1.36.2",
         "version_normalized": "1.36.2.0",

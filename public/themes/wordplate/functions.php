@@ -113,3 +113,24 @@ add_filter('wpseo_opengraph_image', function () {
         return getVideoImageFromEmbed($post->post_content);
     }
 });
+
+//[quicksearch]
+function testimonial_func( $atts ){
+    $testimonials = (new KeriganSolutions\KMATestimonials\Testimonial)->queryTestimonials(false, -1, 'date', 'ASC', 50);
+
+    ob_start();
+    ?>
+    <div class="testimonials">
+        <?php foreach($testimonials as $testimonial){ ?>
+            <div class="testimonial border-bottom py-3" >
+                <a class="pad-anchor" name="<?php echo $testimonial->ID; ?>"></a>
+                <p><?php echo $testimonial->excerpt; ?> 
+                <a href="<?php echo get_permalink($testimonial->ID); ?>">read more.</a></p>
+                <p class="byline">&mdash; <?php echo $testimonial->byline; ?></p>
+            </div>
+        <?php } ?>
+    </div>
+    <?php
+	return ob_get_clean();
+}
+add_shortcode( 'testimonials', 'testimonial_func' );

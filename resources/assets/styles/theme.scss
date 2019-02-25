@@ -16,6 +16,15 @@ html {
         }
     }
 
+    .pad-anchor {
+        &::before {
+            content: " ";
+            margin-top: -100px;
+            display: block;
+            height: 100px;
+        }
+    }
+
     * { 
         text-rendering: unset;
     }

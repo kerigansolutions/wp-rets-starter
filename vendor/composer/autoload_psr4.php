@@ -23,6 +23,7 @@ return array(
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'KeriganSolutions\\SocialMedia\\' => array($vendorDir . '/kerigansolutions/kma-social-icons/src'),
+    'KeriganSolutions\\KMATestimonials\\' => array($vendorDir . '/kerigansolutions/kma-testimonials/src'),
     'KeriganSolutions\\KMATeam\\' => array($vendorDir . '/kerigansolutions/kma-team-module/src'),
     'KeriganSolutions\\KMASlider\\' => array($vendorDir . '/kerigansolutions/kma-slider-module/src'),
     'KeriganSolutions\\KMARealtor\\' => array($vendorDir . '/kerigansolutions/kma-rafgc-realtor/src'),

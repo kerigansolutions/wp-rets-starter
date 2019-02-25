@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3461f2fe2939f17189963e5f3ec22141",
+    "content-hash": "f90c7053d58a3eca81ab65e9afd2ddd8",
     "packages": [
         {
             "name": "brain/hierarchy",
@@ -1118,6 +1118,39 @@
             ],
             "description": "A simple team module from KMA",
             "time": "2018-07-13T15:33:27+00:00"
+        },
+        {
+            "name": "kerigansolutions/kma-testimonials",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kerigansolutions/kma-testimonials.git",
+                "reference": "b7b6c8eb48177012dc47f7f811876bf77ece9975"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kerigansolutions/kma-testimonials/zipball/b7b6c8eb48177012dc47f7f811876bf77ece9975",
+                "reference": "b7b6c8eb48177012dc47f7f811876bf77ece9975",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KeriganSolutions\\KMATestimonials\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daron Adkins",
+                    "email": "daron@kerigan.com"
+                }
+            ],
+            "description": "Simple Testimonials module for wordpress",
+            "time": "2019-02-25T01:07:40+00:00"
         },
         {
             "name": "nesbot/carbon",

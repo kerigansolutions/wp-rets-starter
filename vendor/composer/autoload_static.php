@@ -49,6 +49,7 @@ class ComposerStaticInitf5e1c907962da6446c708da6ae2c6ad5
         'K' => 
         array (
             'KeriganSolutions\\SocialMedia\\' => 29,
+            'KeriganSolutions\\KMATestimonials\\' => 33,
             'KeriganSolutions\\KMATeam\\' => 25,
             'KeriganSolutions\\KMASlider\\' => 27,
             'KeriganSolutions\\KMARealtor\\' => 28,
@@ -155,6 +156,10 @@ class ComposerStaticInitf5e1c907962da6446c708da6ae2c6ad5
         'KeriganSolutions\\SocialMedia\\' => 
         array (
             0 => __DIR__ . '/..' . '/kerigansolutions/kma-social-icons/src',
+        ),
+        'KeriganSolutions\\KMATestimonials\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kerigansolutions/kma-testimonials/src',
         ),
         'KeriganSolutions\\KMATeam\\' => 
         array (
@@ -686,6 +691,7 @@ class ComposerStaticInitf5e1c907962da6446c708da6ae2c6ad5
         'KeriganSolutions\\KMARealtor\\Search' => __DIR__ . '/..' . '/kerigansolutions/kma-rafgc-realtor/src/Search.php',
         'KeriganSolutions\\KMASlider\\KMASliderModule' => __DIR__ . '/..' . '/kerigansolutions/kma-slider-module/src/KMASliderModule.php',
         'KeriganSolutions\\KMATeam\\Team' => __DIR__ . '/..' . '/kerigansolutions/kma-team-module/src/Team.php',
+        'KeriganSolutions\\KMATestimonials\\Testimonial' => __DIR__ . '/..' . '/kerigansolutions/kma-testimonials/src/Testimonial.php',
         'KeriganSolutions\\SocialMedia\\SocialSettingsPage' => __DIR__ . '/..' . '/kerigansolutions/kma-social-icons/src/SocialSettingsPage.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
