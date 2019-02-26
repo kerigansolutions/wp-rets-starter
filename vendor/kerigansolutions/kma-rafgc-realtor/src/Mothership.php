@@ -29,7 +29,9 @@ class Mothership
 
         }catch(GuzzleHttp\Exception\BadResponseException $e){
             echo 'Error: ', $e->getMessage(), "\n";
+            echo 'ouch!';
             $data = '';
+
         }
 
         return $data;

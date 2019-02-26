@@ -39624,6 +39624,10 @@ var render = function() {
             attrs: { method: "get" }
           },
           [
+            _c("input", {
+              attrs: { type: "hidden", name: "q", value: "search" }
+            }),
+            _vm._v(" "),
             _vm.searchTerms.sort
               ? _c("input", {
                   attrs: { type: "hidden", name: "sort" },
@@ -39672,10 +39676,6 @@ var render = function() {
                   domProps: { value: _vm.searchTerms.acreage }
                 })
               : _vm._e(),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "q", value: "search" }
-            }),
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
               _c(
