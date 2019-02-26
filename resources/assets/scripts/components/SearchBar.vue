@@ -25,6 +25,7 @@
             <sort-form :search-terms="searchTerms" class="sort-form" ></sort-form>
         </div>
         <form v-if="showSearch" class="form" method="get" :ref="searchForm" >
+            <input type="hidden" name="q" value="search" >
             <input v-if="searchTerms.sort" type="hidden" name="sort" :value="searchTerms.sort" >
             <input v-if="searchTerms.minPrice && searchTerms.minPrice != 'Any'" type="hidden" name="minPrice" :value="searchTerms.minPrice" >
             <input v-if="searchTerms.maxPrice && searchTerms.maxPrice != 'Any'" type="hidden" name="maxPrice" :value="searchTerms.maxPrice" >
@@ -32,7 +33,6 @@
             <input v-if="searchTerms.baths && searchTerms.baths != 'Any'" type="hidden" name="baths" :value="searchTerms.baths" >
             <input v-if="searchTerms.sqft && searchTerms.sqft != 'Any'" type="hidden" name="sqft" :value="searchTerms.sqft" >
             <input v-if="searchTerms.acreage && searchTerms.acreage != 'Any'" type="hidden" name="acreage" :value="searchTerms.acreage" >
-            <input type="hidden" name="q" value="search" >
             <div class="row">
                 <div class="col-sm-6 col-lg-3 my-2">
                     <label>City / Area</label>
