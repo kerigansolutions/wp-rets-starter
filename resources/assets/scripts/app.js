@@ -35,7 +35,8 @@ const app = new Vue({
         isScrolling: false,
         scrollPosition: 0,
         footerStuck: false,
-        mobileMenuOpen: false
+        mobileMenuOpen: false,
+        galleryIsOpen: false
     },
 
     methods: {
@@ -43,8 +44,14 @@ const app = new Vue({
             this.scrollPosition = window.scrollY;
             this.isScrolling = this.scrollPosition > 40;
         },
-        toggleMenu() {
+        toggleMenu() { 
             this.mobileMenuOpen = ! this.mobileMenuOpen;
+        },
+        openGallery() {
+            this.galleryIsOpen = true;
+        },
+        closeGallery() {
+            this.galleryIsOpen = false;
         }
     },
 
@@ -57,11 +64,11 @@ const app = new Vue({
     },
 
     created () {
-        window.addEventListener('scroll', this.handleScroll)
+        window.addEventListener('scroll', this.handleScroll);
     },
 
     destroyed () {
-        window.removeEventListener('scroll', this.handleScroll)
+        window.removeEventListener('scroll');
     }
 
 })

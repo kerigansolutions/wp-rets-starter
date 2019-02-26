@@ -12953,6 +12953,10 @@ html * {
   text-rendering: unset;
 }
 
+html .pointer {
+  cursor: pointer;
+}
+
 body {
   height: 100%;
 }

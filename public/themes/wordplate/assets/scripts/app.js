@@ -6106,6 +6106,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         itemClass: {
             type: String,
             default: ''
+        },
+        viewerState: {
+            type: Boolean,
+            default: false
         }
     },
     data: function data() {
@@ -6113,7 +6117,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             photos: [],
             prev: null,
             next: null,
-            galleryIsOpen: false,
             activePhoto: {},
             numPhotos: 0,
             hasVirtualTour: false,
@@ -6124,20 +6127,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         this.photos = this.dataPhotos;
         this.numPhotos = this.photos.length;
+        this.activePhoto = this.photos[0];
+        this.activePhoto.index = 0;
+
         if (this.virtualTour != null) {
             this.hasVirtualTour = true;
+        }
+
+        if (viewerState == true) {
+            this.openViewer(0);
+        }
+    },
+
+    computed: {
+        galleryIsOpen: {
+            get: function get() {
+                return this.viewerState;
+            },
+            set: function set(newValue) {
+                return this.viewerState;
+            }
         }
     },
 
     methods: {
         openViewer: function openViewer(index) {
-            this.galleryIsOpen = true;
+            this.$emit('openviewer');
+
             this.activePhoto = this.photos[index];
             this.activePhoto.index = index;
-
-            this.$root.modalOpen = true;
-
-            //console.log(this.activePhoto);
         },
         openTour: function openTour() {
             this.tourOpen = true;
@@ -6148,8 +6166,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.photoOpen = true;
         },
         closeViewer: function closeViewer() {
-            this.galleryIsOpen = false;
-            this.$root.modalOpen = false;
+            this.$emit('closeviewer');
         },
         nextPhoto: function nextPhoto(index) {
             var newNum = index !== this.numPhotos - 1 ? index + 1 : 0;
@@ -40774,7 +40791,7 @@ var render = function() {
                           ? _c(
                               "a",
                               {
-                                staticClass: "btn btn-primary",
+                                staticClass: "btn btn-primary pointer",
                                 staticStyle: { color: "#FFF" },
                                 on: { click: _vm.openTour }
                               },
@@ -40786,7 +40803,7 @@ var render = function() {
                           ? _c(
                               "a",
                               {
-                                staticClass: "btn btn-primary",
+                                staticClass: "btn btn-primary pointer",
                                 staticStyle: { color: "#FFF" },
                                 on: { click: _vm.closeTour }
                               },
@@ -40798,7 +40815,7 @@ var render = function() {
                           ? _c(
                               "a",
                               {
-                                staticClass: "btn btn-primary",
+                                staticClass: "btn btn-primary pointer",
                                 staticStyle: { color: "#FFF" },
                                 attrs: {
                                   src: "//" + _vm.virtualTour,
@@ -40822,7 +40839,7 @@ var render = function() {
                     _c(
                       "a",
                       {
-                        staticClass: "dirbutton",
+                        staticClass: "dirbutton pointer",
                         staticStyle: { margin: "0 1rem" },
                         on: {
                           click: function($event) {
@@ -40865,7 +40882,7 @@ var render = function() {
                     _c(
                       "a",
                       {
-                        staticClass: "btn btn-info",
+                        staticClass: "btn btn-info pointer",
                         on: { click: _vm.closeViewer }
                       },
                       [_vm._v("close")]
@@ -40874,7 +40891,7 @@ var render = function() {
                     _c(
                       "a",
                       {
-                        staticClass: "dirbutton",
+                        staticClass: "dirbutton pointer",
                         staticStyle: { margin: "0 1rem" },
                         on: {
                           click: function($event) {
@@ -53939,7 +53956,8 @@ var app = new Vue({
         isScrolling: false,
         scrollPosition: 0,
         footerStuck: false,
-        mobileMenuOpen: false
+        mobileMenuOpen: false,
+        galleryIsOpen: false
     },
 
     methods: {
@@ -53949,6 +53967,12 @@ var app = new Vue({
         },
         toggleMenu: function toggleMenu() {
             this.mobileMenuOpen = !this.mobileMenuOpen;
+        },
+        openGallery: function openGallery() {
+            this.galleryIsOpen = true;
+        },
+        closeGallery: function closeGallery() {
+            this.galleryIsOpen = false;
         }
     },
 
@@ -53963,7 +53987,7 @@ var app = new Vue({
         window.addEventListener('scroll', this.handleScroll);
     },
     destroyed: function destroyed() {
-        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('scroll');
     }
 });
 
