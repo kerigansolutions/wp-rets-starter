@@ -46,7 +46,7 @@
 
                 @else
 
-                    <p>There were no properties found using your search criteria. Please broaden your search and try again.</p>
+                    <p class="my-4">There were no properties found using your search criteria. Please broaden your search and try again.</p>
 
                 @endif
 
