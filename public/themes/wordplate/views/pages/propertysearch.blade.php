@@ -15,9 +15,9 @@
 
                 </article>
 
-                <search-bar v-bind:search-terms='{{ $currentRequest }}' class="search-bar"></search-bar>
+                <search-bar v-bind:search-terms='{{ $currentRequest }}' class="search-bar mb-4 mb-md-0"></search-bar>
 
-                @if(count($results) > 0)
+                @if($results)
                     <hr class="d-none d-md-block">
                     <div class="d-none d-md-flex row justify-content-between mb-4">
                         <div class="col-auto">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        @foreach($results as $listing)
+                        @foreach($results->data as $listing)
                             <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mt-1" >
                             @include('partials.minilisting')
                             </div>

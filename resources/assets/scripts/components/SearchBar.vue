@@ -2,10 +2,21 @@
     <div>
         <div v-if="!showSearch && !showSort" class="d-flex mb-4 justify-content-between align-items-center" >
             <div class="d-none d-md-block">
-                <span v-if="searchTerms.area" class="mr-3 small text-muted">Area: <b>{{ searchTerms.area }}</b></span>
-                <span v-if="searchTerms.propertyType" class="mr-3 small text-muted">Type: <b>{{ searchTerms.propertyType }}</b></span>
+                <span v-if="searchTerms.area != 'Any'" class="mr-3 small text-muted">Area: <b>{{ searchTerms.area }}</b></span>
+                <span v-if="searchTerms.propertyType != 'Any'" class="mr-3 small text-muted">Type: <b>{{ searchTerms.propertyType }}</b></span>
+                <span v-if="(searchTerms.minPrice && searchTerms.minPrice != 'Any') || (searchTerms.maxPrice && searchTerms.maxPrice != 'Any')" class="mr-3 small text-muted">Price: 
+                    <span v-if="searchTerms.minPrice && searchTerms.minPrice != 'Any' && searchTerms.maxPrice == 'Any'" >></span>
+                    <b v-if="searchTerms.minPrice != 'Any'">${{ searchTerms.minPrice.toLocaleString() }}</b>
+                    <span v-if="searchTerms.minPrice && searchTerms.minPrice != 'Any' && searchTerms.maxPrice != 'Any'" > to </span>
+                    <span v-if="(searchTerms.minPrice && searchTerms.minPrice == 'Any') && (searchTerms.maxPrice && searchTerms.maxPrice != 'Any')" ><</span>
+                    <b v-if="searchTerms.maxPrice != 'Any'">${{ searchTerms.maxPrice.toLocaleString() }}</b>
+                </span>
+                <span v-if="searchTerms.beds && searchTerms.beds != 'Any'" class="mr-3 small text-muted">Beds: <b>{{ searchTerms.beds }}</b></span>
+                <span v-if="searchTerms.baths && searchTerms.baths != 'Any'" class="mr-3 small text-muted">Baths: <b>{{ searchTerms.baths }}</b></span>
+                <span v-if="searchTerms.sqft && searchTerms.sqft != 'Any'" class="mr-3 small text-muted">Sqft: <b>{{ searchTerms.sqft }}</b></span>
+                <span v-if="searchTerms.acreage && searchTerms.acreage != 'Any'" class="mr-3 small text-muted">Acres: <b>{{ searchTerms.acreage }}</b></span>
             </div>
-            <div class="controls d-flex flex-grow-1">
+            <div class="controls d-flex flex-grow-1 justify-content-end">
                 <button @click="toggleSearch()" class="btn btn-sm btn-secondary col col-sm-auto">Refine Search</button>
                 <button @click="toggleSort()" class="btn d-md-none btn-sm btn-info col col-sm-auto">Sort</button>
             </div>
@@ -15,6 +26,12 @@
         </div>
         <form v-if="showSearch" class="form" method="get" :ref="searchForm" >
             <input v-if="searchTerms.sort" type="hidden" name="sort" :value="searchTerms.sort" >
+            <input v-if="searchTerms.minPrice && searchTerms.minPrice != 'Any'" type="hidden" name="minPrice" :value="searchTerms.minPrice" >
+            <input v-if="searchTerms.maxPrice && searchTerms.maxPrice != 'Any'" type="hidden" name="maxPrice" :value="searchTerms.maxPrice" >
+            <input v-if="searchTerms.beds && searchTerms.beds != 'Any'" type="hidden" name="beds" :value="searchTerms.beds" >
+            <input v-if="searchTerms.baths && searchTerms.baths != 'Any'" type="hidden" name="baths" :value="searchTerms.baths" >
+            <input v-if="searchTerms.sqft && searchTerms.sqft != 'Any'" type="hidden" name="sqft" :value="searchTerms.sqft" >
+            <input v-if="searchTerms.acreage && searchTerms.acreage != 'Any'" type="hidden" name="acreage" :value="searchTerms.acreage" >
             <input type="hidden" name="q" value="search" >
             <div class="row">
                 <div class="col-sm-6 col-lg-3 my-2">

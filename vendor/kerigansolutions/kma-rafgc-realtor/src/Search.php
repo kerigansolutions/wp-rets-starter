@@ -104,11 +104,19 @@ class Search extends Mothership
         $response = json_decode($apiCall->getBody());
         $this->results = $response;
 
+        if(!isset($this->results->data)){
+            return false;
+        }
+
         return $this->results;
     }
 
     public function buildPagination()
     {
+        if(!isset($this->results->data)){
+            return false;
+        }
+        
         $pagination = new Pagination($this->getResultMeta(),$this->searchParams);
         return $pagination->buildPagination();
     }

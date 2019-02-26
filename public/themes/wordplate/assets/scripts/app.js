@@ -6267,6 +6267,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['searchTerms'],
@@ -39460,48 +39477,126 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "d-none d-md-block" }, [
-              _vm.searchTerms.area
+              _vm.searchTerms.area != "Any"
                 ? _c("span", { staticClass: "mr-3 small text-muted" }, [
                     _vm._v("Area: "),
                     _c("b", [_vm._v(_vm._s(_vm.searchTerms.area))])
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _vm.searchTerms.propertyType
+              _vm.searchTerms.propertyType != "Any"
                 ? _c("span", { staticClass: "mr-3 small text-muted" }, [
                     _vm._v("Type: "),
                     _c("b", [_vm._v(_vm._s(_vm.searchTerms.propertyType))])
                   ])
+                : _vm._e(),
+              _vm._v(" "),
+              (_vm.searchTerms.minPrice && _vm.searchTerms.minPrice != "Any") ||
+              (_vm.searchTerms.maxPrice && _vm.searchTerms.maxPrice != "Any")
+                ? _c("span", { staticClass: "mr-3 small text-muted" }, [
+                    _vm._v("Price: \n                "),
+                    _vm.searchTerms.minPrice &&
+                    _vm.searchTerms.minPrice != "Any" &&
+                    _vm.searchTerms.maxPrice == "Any"
+                      ? _c("span", [_vm._v(">")])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.searchTerms.minPrice != "Any"
+                      ? _c("b", [
+                          _vm._v(
+                            "$" +
+                              _vm._s(_vm.searchTerms.minPrice.toLocaleString())
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.searchTerms.minPrice &&
+                    _vm.searchTerms.minPrice != "Any" &&
+                    _vm.searchTerms.maxPrice != "Any"
+                      ? _c("span", [_vm._v(" to ")])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.searchTerms.minPrice &&
+                    _vm.searchTerms.minPrice == "Any" &&
+                    (_vm.searchTerms.maxPrice &&
+                      _vm.searchTerms.maxPrice != "Any")
+                      ? _c("span", [_vm._v("<")])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.searchTerms.maxPrice != "Any"
+                      ? _c("b", [
+                          _vm._v(
+                            "$" +
+                              _vm._s(_vm.searchTerms.maxPrice.toLocaleString())
+                          )
+                        ])
+                      : _vm._e()
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.searchTerms.beds && _vm.searchTerms.beds != "Any"
+                ? _c("span", { staticClass: "mr-3 small text-muted" }, [
+                    _vm._v("Beds: "),
+                    _c("b", [_vm._v(_vm._s(_vm.searchTerms.beds))])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.searchTerms.baths && _vm.searchTerms.baths != "Any"
+                ? _c("span", { staticClass: "mr-3 small text-muted" }, [
+                    _vm._v("Baths: "),
+                    _c("b", [_vm._v(_vm._s(_vm.searchTerms.baths))])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.searchTerms.sqft && _vm.searchTerms.sqft != "Any"
+                ? _c("span", { staticClass: "mr-3 small text-muted" }, [
+                    _vm._v("Sqft: "),
+                    _c("b", [_vm._v(_vm._s(_vm.searchTerms.sqft))])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.searchTerms.acreage && _vm.searchTerms.acreage != "Any"
+                ? _c("span", { staticClass: "mr-3 small text-muted" }, [
+                    _vm._v("Acres: "),
+                    _c("b", [_vm._v(_vm._s(_vm.searchTerms.acreage))])
+                  ])
                 : _vm._e()
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "controls d-flex flex-grow-1" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-sm btn-secondary col col-sm-auto",
-                  on: {
-                    click: function($event) {
-                      return _vm.toggleSearch()
+            _c(
+              "div",
+              {
+                staticClass: "controls d-flex flex-grow-1 justify-content-end"
+              },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-secondary col col-sm-auto",
+                    on: {
+                      click: function($event) {
+                        return _vm.toggleSearch()
+                      }
                     }
-                  }
-                },
-                [_vm._v("Refine Search")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn d-md-none btn-sm btn-info col col-sm-auto",
-                  on: {
-                    click: function($event) {
-                      return _vm.toggleSort()
+                  },
+                  [_vm._v("Refine Search")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn d-md-none btn-sm btn-info col col-sm-auto",
+                    on: {
+                      click: function($event) {
+                        return _vm.toggleSort()
+                      }
                     }
-                  }
-                },
-                [_vm._v("Sort")]
-              )
-            ])
+                  },
+                  [_vm._v("Sort")]
+                )
+              ]
+            )
           ]
         )
       : _vm._e(),
@@ -39533,6 +39628,48 @@ var render = function() {
               ? _c("input", {
                   attrs: { type: "hidden", name: "sort" },
                   domProps: { value: _vm.searchTerms.sort }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.searchTerms.minPrice && _vm.searchTerms.minPrice != "Any"
+              ? _c("input", {
+                  attrs: { type: "hidden", name: "minPrice" },
+                  domProps: { value: _vm.searchTerms.minPrice }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.searchTerms.maxPrice && _vm.searchTerms.maxPrice != "Any"
+              ? _c("input", {
+                  attrs: { type: "hidden", name: "maxPrice" },
+                  domProps: { value: _vm.searchTerms.maxPrice }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.searchTerms.beds && _vm.searchTerms.beds != "Any"
+              ? _c("input", {
+                  attrs: { type: "hidden", name: "beds" },
+                  domProps: { value: _vm.searchTerms.beds }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.searchTerms.baths && _vm.searchTerms.baths != "Any"
+              ? _c("input", {
+                  attrs: { type: "hidden", name: "baths" },
+                  domProps: { value: _vm.searchTerms.baths }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.searchTerms.sqft && _vm.searchTerms.sqft != "Any"
+              ? _c("input", {
+                  attrs: { type: "hidden", name: "sqft" },
+                  domProps: { value: _vm.searchTerms.sqft }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.searchTerms.acreage && _vm.searchTerms.acreage != "Any"
+              ? _c("input", {
+                  attrs: { type: "hidden", name: "acreage" },
+                  domProps: { value: _vm.searchTerms.acreage }
                 })
               : _vm._e(),
             _vm._v(" "),
