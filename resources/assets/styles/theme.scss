@@ -193,6 +193,10 @@ ul.navbar-nav {
     .btn {
         box-shadow: 0 0 1rem rgba(0,0,0,.1);
     }
+
+    .text-shadow {
+        text-shadow: 0 0 1rem rgba(0,0,0,.75);
+    }
 }
 
 // Body Content
@@ -501,9 +505,11 @@ footer {
     }
 
     .broker-logo {
+        padding: 3rem 0;
+
         img {
             max-width: 150px;
-        }
+        } 
     }
     
     .copyright {

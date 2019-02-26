@@ -18,8 +18,8 @@
                 <search-bar v-bind:search-terms='{{ $currentRequest }}' class="search-bar"></search-bar>
 
                 @if(count($results) > 0)
-                    <hr>
-                    <div class="row justify-content-between mb-4">
+                    <hr class="d-none d-md-block">
+                    <div class="d-none d-md-flex row justify-content-between mb-4">
                         <div class="col-auto">
                             <small class="text-muted">
                                 Showing {{ $resultsMeta->count }}

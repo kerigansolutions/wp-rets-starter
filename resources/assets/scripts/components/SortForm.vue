@@ -15,7 +15,7 @@
         <input v-if="searchTerms.waterview" type="hidden" name="waterview" :value="searchTerms.waterview" >
         <input v-if="searchTerms.foreclosure" type="hidden" name="foreclosure" :value="searchTerms.foreclosure" >
         <input v-if="searchTerms.page" type="hidden" name="page" :value="searchTerms.page" >
-        <div v-if="searchTerms.status" >
+        <div v-if="searchTerms.status.length > 0" >
             <input 
                 v-for="(status, index) in searchTerms.status" 
                 type="hidden" 
@@ -45,7 +45,7 @@
         props: {
             fieldValue: {
                 type: String,
-                default: 'date_modified|desc'
+                default: 'list_date|desc'
             },
             searchTerms: {
                 type: Object,
@@ -56,6 +56,12 @@
         data () {
             return {
                 selected: this.fieldValue
+            }
+        },
+
+        mounted () {
+            if(this.searchTerms.sort !== null){
+                this.selected = this.searchTerms.sort;
             }
         }
     }

@@ -66,7 +66,7 @@ function quicksearch_func( $atts ){
             <div class="col-12 col-sm-5 col-md-auto mb-2 pr-sm-2 pr-md-0">
                 <property-type></property-type>
             </div>
-            <div class="d-none d-md-block col-auto mb-2 px-4">IN</div>
+            <div class="d-none d-md-block col-auto mb-2 px-4"><span class="text-shadow">IN</span></div>
             <div class="col-9 col-sm-5 col-md-auto mb-2 pr-4">
                 <area-field></area-field>
             </div>
