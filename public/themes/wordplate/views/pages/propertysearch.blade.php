@@ -17,7 +17,7 @@
 
                 <search-bar v-bind:search-terms='{{ $currentRequest }}' class="search-bar mb-4 mb-md-0"></search-bar>
 
-                @if($results)
+                @if($resultsMeta->total > 0)
                     <hr class="d-none d-md-block">
                     <div class="d-none d-md-flex row justify-content-between mb-4">
                         <div class="col-auto">
