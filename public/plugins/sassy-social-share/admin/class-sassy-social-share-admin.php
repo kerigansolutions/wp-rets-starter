@@ -144,7 +144,7 @@ class Sassy_Social_Share_Admin {
 				<?php _e( 'Disable Floating Sharing interface on this ' . $postType, 'sassy-social-share' ) ?>
 			</label>
 			<?php
-			$valid_networks = array( 'facebook', 'twitter', 'linkedin', 'buffer', 'reddit', 'pinterest', 'vkontakte', 'Odnoklassniki' );
+			$valid_networks = array( 'facebook', 'twitter', 'linkedin', 'buffer', 'reddit', 'pinterest', 'vkontakte', 'Odnoklassniki', 'Fintel' );
 			if ( isset( $this->options['hor_enable'] ) && isset( $this->options['horizontal_counts'] ) && isset( $this->options['horizontal_re_providers'] ) && count( $this->options['horizontal_re_providers'] ) > 0 ) {
 				?>
 				<p>

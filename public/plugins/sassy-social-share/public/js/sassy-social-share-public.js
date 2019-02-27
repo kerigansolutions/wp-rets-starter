@@ -280,6 +280,11 @@ function heateorSssMoreSharingPopup(elem, postUrl, postTitle, twitterTitle){
 		locale: "en-US",
 		redirect_url: "http://cgi.fark.com/cgi/fark/submit.pl?new_url=" + postUrl,
 	  },
+	  fintel: {
+		title: "Fintel",
+		locale: "en-US",
+		redirect_url: "https://fintel.io/submit?url=" + postUrl,
+	  },
 	  yummly: {
 		title: "Yummly",
 		locale: "en-US",

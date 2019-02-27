@@ -1,9 +1,19 @@
 const mix = require('laravel-mix');
+let autoprefixer = require('autoprefixer')
 
 require('dotenv').config();
 
 mix.setResourceRoot('../');
 mix.setPublicPath('public/themes/wordplate/assets');
+
+mix.options({
+    postCss: [
+        require('autoprefixer')({
+            grid: true,
+            browsers: ['last 2 versions', 'IE 7', 'Safari 9']
+        })
+    ]
+});
 
 mix.js('resources/assets/scripts/app.js', 'scripts');
 mix.sass('resources/assets/styles/app.scss', 'styles');
