@@ -11,7 +11,7 @@
     <div id="app">
         <div 
             class="site-wrapper" 
-            :class="{
+            v-bind:class="{
                 'full-height': footerStuck, 
                 'scrolling': isScrolling,
                 'mobile-menu-open': mobileMenuOpen 

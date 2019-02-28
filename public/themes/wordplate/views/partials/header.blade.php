@@ -29,7 +29,7 @@
                     <button v-on:click="toggleMenu" class="d-xl-none btn btn-secondary btn-sm" type="button" data-toggle="collapse" data-target="#mobilemenu" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                         MENU <i
                                 class="fa" 
-                                :class="{
+                                v-bind:class="{
                                     'fa-bars': !mobileMenuOpen,
                                     'fa-times': mobileMenuOpen
                                 }"
@@ -39,12 +39,12 @@
                 </div>
                 
                 <div class="main-navigation collapse navbar-collapse">
-                    <main-menu :main-nav="{{ website_menu('main-navigation') }}" class="navbar-nav ml-auto"></main-menu>
+                    <main-menu v-bind:main-nav="{{ website_menu('main-navigation') }}" class="navbar-nav ml-auto"></main-menu>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<div v-if="mobileMenuOpen" class="mobile-menu align-items-center" ref="mobileMenuContainer" :class="{ 'open': this.mobileMenuOpen }" >
-    <mobile-menu :mobile-nav="{{ website_menu('mobile-navigation') }}" class="navbar-nav m-auto" ></mobile-menu>
+<div v-if="mobileMenuOpen" class="mobile-menu align-items-center" ref="mobileMenuContainer" v-bind:class="{ 'open': this.mobileMenuOpen }" >
+    <mobile-menu v-bind:mobile-nav="{{ website_menu('mobile-navigation') }}" class="navbar-nav m-auto" ></mobile-menu>
 </div>

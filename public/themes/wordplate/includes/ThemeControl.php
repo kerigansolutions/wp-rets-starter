@@ -186,11 +186,6 @@ class ThemeControl
 
     protected function createCustomizerSections($wp_customize)
     {
-        $wp_customize->add_section( 'theme_colors' , array(
-            'title'      => __( 'Theme Colors', 'wordplate' ),
-            'priority'   => 1,
-        ) );
-
         $wp_customize->add_section( 'wordplate_theme_settings' , array(
             'title'      => __( 'Theme Options', 'wordplate' ),
             'priority'   => 0,
@@ -253,12 +248,6 @@ class ThemeControl
             'section' => 'wordplate_theme_settings'
         ) );
 
-        $wp_customize->add_control( 'enable_portfolio', array(
-            'label' => __( 'Enable Portfolio' ),
-            'type' => 'checkbox',
-            'section' => 'wordplate_theme_settings'
-        ) );
-
         $wp_customize->add_control( 'enable_social', array(
             'label' => __( 'Enable Social Icons' ),
             'type' => 'checkbox',
@@ -298,11 +287,6 @@ class ThemeControl
         $wp_customize->add_setting( 'overlay_text_color', array(
             'capability' => 'edit_theme_options',
             'default' => '#FFFFFF',
-        ) );
-    
-        $wp_customize->add_setting( 'top_section_height', array(
-            'capability' => 'edit_theme_options',
-            'default' => '100vh',
         ) );
 
         $wp_customize->add_setting( 'number_feature_boxes', array(

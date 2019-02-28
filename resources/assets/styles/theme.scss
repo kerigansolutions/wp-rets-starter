@@ -255,7 +255,7 @@ main {
 .slider-container,
 .main-header-image {
     position: relative;
-    min-height: 475px;
+    min-height: 100vh;
     overflow: hidden;
     z-index: 0;
     background-size: cover;
@@ -264,9 +264,9 @@ main {
     align-items: center;
     justify-content: center;
 
-    @media screen and (min-width: 1024px){
-        min-height: 550px;
-    }
+    // @media screen and (min-width: 1024px){
+    //     min-height: 550px;
+    // }
 
 
     .overlay {
@@ -296,6 +296,17 @@ main {
                 line-height: 3rem;
             }
         }
+    }
+}
+
+.slider-container {
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+
+    .slider-left, .slider-right {
+        display: none;
     }
 }
  

@@ -16,11 +16,11 @@ class KMASliderModule
 
         // Don't die if ACF isn't installed
         if ( function_exists( 'acf_add_local_field_group' ) ) {
-            add_action( 'acf/init', [$this, 'registerFields'] );
+            add_action( 'init', [$this, 'registerFields'] );
         }
 
         // Create REST API Routes
-        add_action( 'init', [$this, 'addRoutes'] );
+        add_action( 'rest_api_init', [$this, 'addRoutes'] );
     }
 
     /* 

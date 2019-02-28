@@ -6,12 +6,7 @@
         {{ the_post() }}
                 
         @if(get_theme_mod('header_feature') == 'slider')
-            <kma-slider 
-                class="slider-container" 
-                style="
-                    height: {{ get_theme_mod('top_section_height') }};
-                    "
-            ></kma-slider>
+            @include('partials.slider')
         @endif
 
         @if(get_theme_mod('header_feature') == 'main-image')
