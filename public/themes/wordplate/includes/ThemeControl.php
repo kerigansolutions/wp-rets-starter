@@ -234,6 +234,7 @@ class ThemeControl
             'choices' => array(
                 'slider' => __('Slider'),
                 'main-image' => __('Main Image'),
+                'background-video' => __('Full-Screen Video')
         ) ) );
 
         $wp_customize->add_control( 'enable_testimonials', array(
@@ -259,6 +260,12 @@ class ThemeControl
     protected function frontPageSettings($wp_customize)
     {
         $wp_customize->add_setting( 'home_header_image', array(
+            'capability' => 'edit_theme_options',
+            'default' => '',
+            'sanitize_callback' => 'absint'
+        ) );
+
+        $wp_customize->add_setting( 'video_upload', array(
             'capability' => 'edit_theme_options',
             'default' => '',
             'sanitize_callback' => 'absint'
@@ -297,8 +304,8 @@ class ThemeControl
 
     protected function frontPageControls($wp_customize)
     {
-        if (get_theme_mod('header_feature') == 'main-image'){
         
+        if (get_theme_mod('header_feature') == 'main-image'){
             $wp_customize->add_control(
                 new WP_Customize_Media_Control( 
                 $wp_customize, 'home_header_image', 
@@ -307,51 +314,73 @@ class ThemeControl
                     'section' => 'static_front_page',
                     'mime_type' => 'image',
             ) ) );
-    
-            $wp_customize->add_control( 'use_overlay_text', array(
-                'label' => __( 'Use overlay to increase legibility' ),
-                'type' => 'checkbox',
-                'section' => 'static_front_page'
-            ) );
-    
-            $wp_customize->add_control( 'overlay_content', array(
-                'label' => __( 'Select Overlay Content' ),
-                'type' => 'dropdown-pages',
-                'section' => 'static_front_page'
-            ) );
-    
-            $wp_customize->add_control( 
-                new WP_Customize_Color_Control( //Instantiate the color control class
-                $wp_customize, 'overlay_color', //Set a unique ID for the control
+        }
+
+        if (get_theme_mod('header_feature') == 'background-video'){
+            $wp_customize->add_control(
+                new WP_Customize_Media_Control( 
+                $wp_customize, 'video_upload', 
                 array(
-                   'label'      => __( 'Overlay Color', 'wordplate' ), //Admin-visible name of the control
-                   'settings'   => 'overlay_color', //Which setting to load and manipulate (serialized is okay)
-                   'priority'   => 10, //Determines the order this control appears in for the specified section
-                   'section'    => 'static_front_page', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                    'label' => __( 'Video File', 'wordplate' ),
+                    'section' => 'static_front_page',
+                    'mime_type' => 'video'
             ) ) );
-    
-            $wp_customize->add_control( 'overlay_opacity', array(
-                'label' => __( 'Select Overlay Opacity' ),
-                'type' => 'number',
-                'section' => 'static_front_page'
-            ) );
-    
-            $wp_customize->add_control( 
-                new WP_Customize_Color_Control( //Instantiate the color control class
-                $wp_customize, 'overlay_text_color', //Set a unique ID for the control
+
+            $wp_customize->add_control(
+                new WP_Customize_Media_Control( 
+                $wp_customize, 'home_header_image', 
                 array(
-                   'label'      => __( 'Overlay Text Color', 'wordplate' ), //Admin-visible name of the control
-                   'settings'   => 'overlay_text_color', //Which setting to load and manipulate (serialized is okay)
-                   'priority'   => 10, //Determines the order this control appears in for the specified section
-                   'section'    => 'static_front_page', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                    'label' => __( 'Backup Header Image', 'wordplate' ),
+                    'section' => 'static_front_page',
+                    'mime_type' => 'image',
             ) ) );
         }
+
+        $wp_customize->add_control( 'use_overlay_text', array(
+            'label' => __( 'Use overlay to increase legibility' ),
+            'type' => 'checkbox',
+            'section' => 'static_front_page'
+        ) );
+
+        $wp_customize->add_control( 'overlay_content', array(
+            'label' => __( 'Select Overlay Content' ),
+            'type' => 'dropdown-pages',
+            'section' => 'static_front_page'
+        ) );
+
+        $wp_customize->add_control( 
+            new WP_Customize_Color_Control( //Instantiate the color control class
+            $wp_customize, 'overlay_color', //Set a unique ID for the control
+            array(
+                'label'      => __( 'Overlay Color', 'wordplate' ), //Admin-visible name of the control
+                'settings'   => 'overlay_color', //Which setting to load and manipulate (serialized is okay)
+                'priority'   => 10, //Determines the order this control appears in for the specified section
+                'section'    => 'static_front_page', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+        ) ) );
+
+        $wp_customize->add_control( 'overlay_opacity', array(
+            'label' => __( 'Select Overlay Opacity' ),
+            'type' => 'number',
+            'section' => 'static_front_page'
+        ) );
+
+        $wp_customize->add_control( 
+            new WP_Customize_Color_Control( //Instantiate the color control class
+            $wp_customize, 'overlay_text_color', //Set a unique ID for the control
+            array(
+                'label'      => __( 'Overlay Text Color', 'wordplate' ), //Admin-visible name of the control
+                'settings'   => 'overlay_text_color', //Which setting to load and manipulate (serialized is okay)
+                'priority'   => 10, //Determines the order this control appears in for the specified section
+                'section'    => 'static_front_page', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+        ) ) );
 
         $wp_customize->add_control( 'number_feature_boxes', array(
             'label' => __( 'Number of Feature Boxes' ),
             'type' => 'number',
             'section' => 'static_front_page'
         ) );
+
+
 
     }
 

@@ -54,13 +54,14 @@ class KMASliderModule
         $slideArray = [];
         foreach ($slidelist as $slide) {
             array_push($slideArray, [
-                'id'          => (isset($slide->ID) ? $slide->ID : null),
-                'name'        => (isset($slide->post_title) ? $slide->post_title : null),
-                'slug'        => (isset($slide->post_name) ? $slide->post_name : null),
-                'photo'       => get_field('image',$slide->ID),
-                'href'        => get_field('link',$slide->ID),
-                'target'      => get_field('link_target',$slide->ID),
-                'slider'      => get_field('slider',$slide->ID)
+                'id'            => (isset($slide->ID) ? $slide->ID : null),
+                'name'          => (isset($slide->post_title) ? $slide->post_title : null),
+                'slug'          => (isset($slide->post_name) ? $slide->post_name : null),
+                'photo'         => get_field('image',$slide->ID),
+                'href'          => get_field('link',$slide->ID),
+                'target'        => get_field('link_target',$slide->ID),
+                'overlay'       => get_field('overlay',$slide->ID),
+                'slide_content' => get_field('slide_content',$slide->ID)
             ]);
         }
 
@@ -141,6 +142,31 @@ class KMASliderModule
 			'max_height'    => 0,
         ) );
 
+        // Slide Content
+        acf_add_local_field( array(
+			'key'          => 'slide_content',
+			'label'        => 'Slide Content',
+			'name'         => 'slide_content',
+			'type'         => 'wysiwyg',
+			'parent'       => 'group_slide_details',
+            'instructions' => '',
+            'tabs'         => 'all',
+            'toolbar'      => 'full',
+            'media_upload' => 1,
+			'required'     => 0,
+        ) );
+
+        // Add Overlay
+        acf_add_local_field( array(
+			'key'          => 'overlay',
+			'label'        => 'Add Overlay?',
+			'name'         => 'overlay',
+			'type'         => 'true_false',
+			'parent'       => 'group_slide_details',
+			'message'      => 'check to add a layer over the image to increase legibility of content.',
+			'required'     => 0,
+        ) );
+
         // Link
         acf_add_local_field( array(
 			'key'          => 'link',
@@ -148,7 +174,7 @@ class KMASliderModule
 			'name'         => 'link',
 			'type'         => 'url',
 			'parent'       => 'group_slide_details',
-			'instructions' => '',
+			'instructions' => 'Add a link to make the entire slide clickable.',
 			'required'     => 0,
         ) );
 
@@ -173,23 +199,6 @@ class KMASliderModule
             'ajax'         => 0,
             'placeholder'  => '',
         ) );
-        
-        // Affiliation
-		acf_add_local_field( array(
-			'key'             => 'sliders',
-			'label'           => 'Sliders',
-			'name'            => 'sliders',
-			'type'            => 'taxonomy',
-			'parent'          => 'group_slide_details',
-			'instructions'    => '',
-			'required'        => 0,
-			'taxonomy'        => 'slider',
-			'field_type'      => 'checkbox',    // UI (checkbox, multi-select, select, radio)
-			'allow_null'      => 0,             // Can select a blank value
-			'load_save_terms' => 1,             // Persist using term relationships table
-			'return_format'   => 'object',      // or 'object'
-			'add_term'        => 0,             // Can the user add new terms?
-		) );
 
     }
 

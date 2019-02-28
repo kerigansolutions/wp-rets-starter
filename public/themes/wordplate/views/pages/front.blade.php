@@ -12,6 +12,10 @@
         @if(get_theme_mod('header_feature') == 'main-image')
             @include('partials.headerimage')
         @endif
+
+        @if(get_theme_mod('header_feature') == 'background-video')
+            @include('partials.video')
+        @endif
         
         @if($headshot != '')
         <div class="headshot d-flex justify-content-center" >
