@@ -11,23 +11,33 @@
 
                     <div class="row align-items-center">
 
-                        <div class="col-lg-6 pl-xl-5 order-lg-2">
-                            <div class="row align-items-center">
-                                <div class="col-md-6 col-lg-12">
+                        <div class="col-12 col-lg-auto pl-xl-5 order-lg-2">
+                            <div class="d-flex flex-lg-column flex-wrap align-items-center align-lg-items-start">
+                                <div class="col-md-6 col-lg-auto">
                                 @include('listing.header')
                                 </div>
-                                <div class="col-md-6 col-lg-12 text-center text-md-left">
+                                <div class="col-md-6 col-lg-auto text-center text-md-left">
                                 @include('listing.actionbuttons')
                                 </div>   
                             </div>
                         </div>
 
-                        <div class="col-lg-6 pr-lg-5 order-lg-1">
+                        <div class="col-12 col-lg order-lg-1 flex-grow-1">
                             @include('listing.mainphoto')
                         </div>
+
+                    </div>
+                    <div class="row">
                         
-                        <div class="col-12 order-lg-3">
+                        <div class="col-12 col-lg pt-lg-2">
                             <p>{{ $listing->remarks }}</p>
+                        </div>
+
+                        <div class="col-12 col-lg-auto pb-4">
+                            <div class="p-4 d-flex flex-column align-items-center">
+                            <h3 class="text-muted">Share this property</h3>
+                            {!! do_shortcode('[Sassy_Social_Share]') !!}
+                            </div>
                         </div>
 
                     </div>

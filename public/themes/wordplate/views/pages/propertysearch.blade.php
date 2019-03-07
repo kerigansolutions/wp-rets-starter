@@ -9,7 +9,7 @@
             <div class="container-wide">
                 <article class="support">
                     <header class="pt-0 pt-xl-5 text-center text-md-left">
-                        <h1>{{ the_title() }}</h1>
+                        <h1>{{ $headline }}</h1>
                     </header>
                     {{ the_content() }}
 
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        @foreach($results->data as $listing)
+                        @foreach($results->data as $miniListing)
                             <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mt-1" >
                             @include('partials.minilisting')
                             </div>

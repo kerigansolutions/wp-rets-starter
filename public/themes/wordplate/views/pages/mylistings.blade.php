@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        @foreach($results as $listing)
+                        @foreach($results as $miniListing)
                             <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mt-1" >
                             @include('partials.minilisting')
                             </div>

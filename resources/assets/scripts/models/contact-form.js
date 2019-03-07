@@ -18,6 +18,10 @@ export default class ContactForm {
             email:     this.email,
             phone:     this.phone,
             comments:  this.comments,
+            listing:   this.listing,
+            price:     this.price,
+            address:   this.address,
+            image:     this.image
         }).then(() => {
             this.success = true;
             this.clearForm();

@@ -5,7 +5,7 @@
         <p><a href="mailto:{{ get_field('email', 'option') }}">{{ get_field('email', 'option') }}</a></p>
         <social-icons :size="37" :margin=".25" class="d-flex social-icons justify-content-center mb-4" ></social-icons>
 
-        <contact-form class="contact-form"></contact-form>
+        <contact-form class="contact-form" :listing='{{ json_encode((isset($listing) && $listing != '' ? $listing : '')) }}' ></contact-form>
 
         @if(get_field('broker_logo', 'option'))
         <div class="broker-logo" >

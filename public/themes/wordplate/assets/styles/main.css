@@ -13038,7 +13038,7 @@ html {
 
 html .btn {
   text-transform: uppercase;
-  font-size: .9em;
+  font-size: 1em;
   line-height: 1.5rem;
   font-weight: 600;
 }
@@ -13137,14 +13137,14 @@ body #app .site-wrapper.full-height {
 
 #app .top .contact-nav a {
   display: inline-block;
-  padding: .3rem .25rem 0;
+  padding: .5rem;
   margin: 0 .5rem 0 0;
   background-color: #fd7e14;
-  font-size: .9rem;
+  font-size: 1rem;
   color: #fff;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 993px) {
   #app .top .contact-nav a {
     color: #fd7e14;
     background-color: transparent;

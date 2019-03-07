@@ -59,7 +59,7 @@
                     navigation-prev-label='<i class="fa fa-chevron-left text-white" aria-hidden="true"></i>'
                     class="row" 
                     >
-                    @foreach($featuredListings as $listing)
+                    @foreach($featuredListings as $miniListing)
                     <slide class="col-md-6 col-lg-4 col-xl-3">
                     @include('partials.minilisting')
                     </slide>
@@ -67,7 +67,7 @@
                 </carousel>
             </div>
             <div class="section-button">
-                <a class="btn btn-light" href="/my-listings" >All My Listings</a>
+                <a class="btn btn-light" href="/my-listings" >See All My Listings</a>
             </div>
         </div>
         @endif
