@@ -41,7 +41,7 @@
         </main>
 
         @if(count($featuredListings) > 0)
-        <div class="featured-listings-section bg-secondary text-center text-white">
+        <div class="featured-listings-section text-center text-white">
             <div class="section-title">
                 <h2>Featured Listings</h2>
             </div>

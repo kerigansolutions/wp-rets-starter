@@ -13328,7 +13328,7 @@ main article h2 {
 }
 
 .slider-container {
-  position: absolute;
+  position: fixed;
   z-index: 0;
   height: 100%;
   width: 100%;
@@ -13337,6 +13337,10 @@ main article h2 {
 .slider-container .slider-left,
 .slider-container .slider-right {
   display: none;
+}
+
+.VideoBg {
+  position: fixed !important;
 }
 
 .section-button {
@@ -13369,6 +13373,16 @@ main article h2 {
   .section-title {
     padding: 5rem 1rem 1rem;
   }
+}
+
+.featured-listings-section {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.feature-box-section {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 @media (min-width: 576px) {
@@ -13511,6 +13525,7 @@ article h2::after,
 footer {
   color: #FFF;
   border-top: 5px solid #fd7e14;
+  position: relative;
 }
 
 footer a {

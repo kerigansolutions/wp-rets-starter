@@ -1,4 +1,4 @@
-<div class="feature-box-section bg-light">
+<div class="feature-box-section">
     <div class="container">
         <div class="row align-items-center">
             @foreach($featureBoxes as $featureBox)
