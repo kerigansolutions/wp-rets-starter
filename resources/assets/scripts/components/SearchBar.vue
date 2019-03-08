@@ -5,10 +5,10 @@
                 <span v-if="searchTerms.area != 'Any'" class="mr-3 small text-muted">Area: <b>{{ searchTerms.area }}</b></span>
                 <span v-if="searchTerms.propertyType != 'Any'" class="mr-3 small text-muted">Type: <b>{{ searchTerms.propertyType }}</b></span>
                 <span v-if="(searchTerms.minPrice && searchTerms.minPrice != 'Any') || (searchTerms.maxPrice && searchTerms.maxPrice != 'Any')" class="mr-3 small text-muted">Price: 
-                    <span v-if="searchTerms.minPrice && searchTerms.minPrice != 'Any' && searchTerms.maxPrice == 'Any'" >></span>
+                    <span v-if="searchTerms.minPrice && searchTerms.minPrice != 'Any' && searchTerms.maxPrice == 'Any'" >&gt;</span>
                     <b v-if="searchTerms.minPrice != 'Any'">${{ searchTerms.minPrice.toLocaleString() }}</b>
                     <span v-if="searchTerms.minPrice && searchTerms.minPrice != 'Any' && searchTerms.maxPrice != 'Any'" > to </span>
-                    <span v-if="(searchTerms.minPrice && searchTerms.minPrice == 'Any') && (searchTerms.maxPrice && searchTerms.maxPrice != 'Any')" ><</span>
+                    <span v-if="(searchTerms.minPrice && searchTerms.minPrice == 'Any') && (searchTerms.maxPrice && searchTerms.maxPrice != 'Any')" >&lt;</span>
                     <b v-if="searchTerms.maxPrice != 'Any'">${{ searchTerms.maxPrice.toLocaleString() }}</b>
                 </span>
                 <span v-if="searchTerms.beds && searchTerms.beds != 'Any'" class="mr-3 small text-muted">Beds: <b>{{ searchTerms.beds }}</b></span>
@@ -24,7 +24,7 @@
         <div v-if="showSort" class="mb-4">
             <sort-form :search-terms="searchTerms" class="sort-form" ></sort-form>
         </div>
-        <form v-if="showSearch" class="form" method="get" :ref="searchForm" >
+        <form v-if="showSearch" class="form" method="get" >
             <input type="hidden" name="q" value="search" >
             <input v-if="searchTerms.sort" type="hidden" name="sort" :value="searchTerms.sort" >
             <input v-if="searchTerms.minPrice && searchTerms.minPrice != 'Any'" type="hidden" name="minPrice" :value="searchTerms.minPrice" >
@@ -33,22 +33,30 @@
             <input v-if="searchTerms.baths && searchTerms.baths != 'Any'" type="hidden" name="baths" :value="searchTerms.baths" >
             <input v-if="searchTerms.sqft && searchTerms.sqft != 'Any'" type="hidden" name="sqft" :value="searchTerms.sqft" >
             <input v-if="searchTerms.acreage && searchTerms.acreage != 'Any'" type="hidden" name="acreage" :value="searchTerms.acreage" >
-            <div class="row">
-                <div class="col-sm-6 col-lg-3 my-2">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-4 my-2" v-bind:class="{ 'col-xl': !advancedOpen, 'col-xl-4': advancedOpen }">
+                    <label>MLS# / Address</label>
+                    <omni-bar
+                        v-model="omni"
+                        :options="omniTerms"
+                        :filter-function="applySearchFilter"
+                        :field-value="searchTerms.omni"
+                    ></omni-bar>
+                </div>
+                <div class="col-sm-6 col-md-4 my-2" v-bind:class="{ 'col-xl': !advancedOpen, 'col-xl-4': advancedOpen }">
                     <label>City / Area</label>
                     <area-field
                         :field-value="searchTerms.area"
                     >
                     </area-field>
                 </div>
-                <div class="col-sm-6 col-lg-3 my-2">
+                <div class="col-sm-6 col-md-4 my-2" v-bind:class="{ 'col-xl': !advancedOpen, 'col-xl-4': advancedOpen }">
                     <label>Property Type</label>
                     <property-type
                         :field-value="searchTerms.propertyType"
                     >
                     </property-type>
                 </div>
-
                 <div v-if="advancedOpen" class="col-6 col-md-4 col-lg-3">
                     <min-price-field
                         class="my-2"
@@ -89,18 +97,22 @@
                     ></acreage-field>
                 </div>
 
-                <div class="col-sm-6 col-lg-3 mb-md-2 pt-md-3">
-                    <button
-                        @click="toggleAdvanced"
-                        type="button"
-                        class="btn btn-secondary dropdown-toggle btn-block mt-4"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        >Advanced Options</button>
-                </div>
-                
-                <div class="col-sm-6 col-lg-3 mb-2 pt-md-3">
-                    <button type="submit" class="btn btn-primary btn-block mt-4">Search</button>
+                <div class="col col-lg-6 mb-md-2 pt-md-3" v-bind:class="{ 'col-xl-auto': !advancedOpen, 'col-xl-6': advancedOpen }">
+                    <div class="row d-flex">
+                        <div class="col-auto col-sm-6 col-lg-auto" v-bind:class="{ 'col-xl-auto': !advancedOpen, 'col-xl-6': advancedOpen }" >
+                            <button
+                                @click="toggleAdvanced"
+                                type="button"
+                                class="btn btn-secondary dropdown-toggle btn-block mt-4"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                >Advanced Options</button>
+                        </div>
+                        
+                        <div class="col col-sm-6 col-lg" v-bind:class="{ 'col-xl': !advancedOpen, 'col-xl-6': advancedOpen }" >
+                            <button type="submit" class="btn btn-primary btn-block mt-4">Search</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -170,3 +182,8 @@
         }
     }
 </script>
+<style lang="scss" scoped>
+.btn {
+    font-size: .9rem;
+}
+</style>

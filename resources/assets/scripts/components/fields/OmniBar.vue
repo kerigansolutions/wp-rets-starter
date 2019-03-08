@@ -1,15 +1,20 @@
 <template>
 <on-click-outside :do="close">
     <div class="search-select" :class="{ 'is-active': isOpen }">
-        <button
-            ref="button"
-            @click="open"
-            type="button"
-            class="search-select-input"
-        >
-            <span v-if="value !== null">{{ toTitleCase(value) }}</span>
-            <span v-else class="search-select-placeholder">Address, MLS, Area</span>
-        </button>
+        <div class="d-flex">
+            <button
+                ref="button"
+                @click="open"
+                type="button"
+                class="search-select-input"
+            >
+                <span v-if="value !== null">{{ toTitleCase(value) }}</span>
+                <span v-else class="search-select-placeholder">Address, MLS, Area</span>
+            </button>
+            <span v-if="search !== ''" @click="clear()" class="btn btn-secondary pointer">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+        </div>
         <div ref="dropdown" v-show="isOpen" class="search-select-dropdown">
             <input
                 ref="search"
@@ -80,6 +85,10 @@ export default {
             this.isOpen = false
             this.$refs.button.focus();
         },
+        clear() {
+            this.search = '';
+            this.$emit('input', '')
+        },
         select(option) {
             this.search = option
             this.$emit('input', option)
@@ -100,6 +109,7 @@ export default {
 <style scoped>
 .search-select {
     position: relative;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 .search-select-input {
     -webkit-appearance: none;
@@ -109,14 +119,15 @@ export default {
     display: block;
     width: 100%;
     border-width: 1px;
-    padding: 0.38rem 0.7rem;
+    height: calc(3rem + 2px);
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
     background-color: #fff;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid #ddd;
+    border: 1px solid #ced4da;
 }
 .search-select-input:focus {
   outline: 0;

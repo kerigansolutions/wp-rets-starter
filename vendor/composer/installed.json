@@ -1017,24 +1017,24 @@
     },
     {
         "name": "kerigansolutions/kma-rafgc-realtor",
-        "version": "1.4.1",
-        "version_normalized": "1.4.1.0",
+        "version": "1.4.4",
+        "version_normalized": "1.4.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/kerigansolutions/kma-rafgc-realtor.git",
-            "reference": "1f6621237241388c0f4e47f2bc4bb1ceb319b10e"
+            "reference": "382167377da52195611c3cf10c73419c8fa15907"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/kerigansolutions/kma-rafgc-realtor/zipball/1f6621237241388c0f4e47f2bc4bb1ceb319b10e",
-            "reference": "1f6621237241388c0f4e47f2bc4bb1ceb319b10e",
+            "url": "https://api.github.com/repos/kerigansolutions/kma-rafgc-realtor/zipball/382167377da52195611c3cf10c73419c8fa15907",
+            "reference": "382167377da52195611c3cf10c73419c8fa15907",
             "shasum": ""
         },
         "require": {
             "guzzlehttp/guzzle": "^6.3",
             "nesbot/carbon": "^1.22"
         },
-        "time": "2019-03-06T20:41:56+00:00",
+        "time": "2019-03-07T22:14:58+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

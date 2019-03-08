@@ -6570,6 +6570,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['searchTerms'],
@@ -7239,6 +7251,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7283,6 +7300,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (!this.isOpen) return;
             this.isOpen = false;
             this.$refs.button.focus();
+        },
+        clear: function clear() {
+            this.search = '';
+            this.$emit('input', '');
         },
         select: function select(option) {
             this.search = option;
@@ -16861,6 +16882,21 @@ exports.push([module.i, "\n.slide,\n.slider,\n.slides {\n  height: 100%;\n  back
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4401901d\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SearchBar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.btn[data-v-4401901d] {\n  font-size: .9rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-44de6d02\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/navigation/MobileNavigationMenu.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16884,7 +16920,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.search-select[data-v-5290aa7c] {\r\n    position: relative;\n}\n.search-select-input[data-v-5290aa7c] {\r\n    -webkit-appearance: none;\r\n    -moz-appearance: none;\r\n    appearance: none;\r\n    text-align: left;\r\n    display: block;\r\n    width: 100%;\r\n    border-width: 1px;\r\n    padding: 0.38rem 0.7rem;\r\n    background-color: #fff;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    border: 1px solid #ddd;\n}\n.search-select-input[data-v-5290aa7c]:focus {\r\n  outline: 0;\r\n  box-shadow: none;\n}\n.search-select-placeholder[data-v-5290aa7c] {\r\n  color: #8795a1;\n}\n.search-select.is-active .search-select-input[data-v-5290aa7c] {\r\n  box-shadow: none;\n}\n.search-select-dropdown[data-v-5290aa7c] {\r\n  position: absolute;\r\n  right: 0;\r\n  left: 0;\r\n  background-color: #fff;\r\n  padding: 0.5rem;\r\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\r\n  z-index: 50;\r\n  border: 1px solid #ddd;\n}\n.search-select-search[data-v-5290aa7c] {\r\n  display: block;\r\n  margin-bottom: 0.5rem;\r\n  width: 100%;\r\n  padding: 0.38rem 0.7rem;\r\n  background-color: #fff;\r\n  color: #2A2D2E;\r\n  border-radius: 0;\r\n  border: 1px solid #ddd;\n}\n.search-select-search[data-v-5290aa7c]:focus {\r\n  outline: 0;\n}\n.search-select-options[data-v-5290aa7c] {\r\n  list-style: none;\r\n  padding: 0;\r\n  position: relative;\r\n  overflow-y: auto;\r\n  -webkit-overflow-scrolling: touch;\r\n  max-height: 14rem;\n}\n.search-select-option[data-v-5290aa7c] {\r\n  padding: 0.5rem 0.75rem;\r\n  color: #2A2D2E;\r\n  cursor: pointer;\r\n  border-radius: 0.25rem;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\n}\n.search-select-option[data-v-5290aa7c]:hover {\r\n  background-color: #432021;\r\n  color: #fff;\n}\n.search-select-option.is-active[data-v-5290aa7c],\r\n.search-select-option.is-active[data-v-5290aa7c]:hover {\r\n  background-color: #432021;\r\n  color: #fff;\n}\n.search-select-empty[data-v-5290aa7c] {\r\n  padding: 0.5rem 0.75rem;\r\n  color: #b8c2cc;\n}\r\n", ""]);
+exports.push([module.i, "\n.search-select[data-v-5290aa7c] {\r\n    position: relative;\r\n    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);\n}\n.search-select-input[data-v-5290aa7c] {\r\n    -webkit-appearance: none;\r\n    -moz-appearance: none;\r\n    appearance: none;\r\n    text-align: left;\r\n    display: block;\r\n    width: 100%;\r\n    border-width: 1px;\r\n    height: calc(3rem + 2px);\r\n    padding: 0.375rem 1.75rem 0.375rem 0.75rem;\r\n    background-color: #fff;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    border: 1px solid #ced4da;\n}\n.search-select-input[data-v-5290aa7c]:focus {\r\n  outline: 0;\r\n  box-shadow: none;\n}\n.search-select-placeholder[data-v-5290aa7c] {\r\n  color: #8795a1;\n}\n.search-select.is-active .search-select-input[data-v-5290aa7c] {\r\n  box-shadow: none;\n}\n.search-select-dropdown[data-v-5290aa7c] {\r\n  position: absolute;\r\n  right: 0;\r\n  left: 0;\r\n  background-color: #fff;\r\n  padding: 0.5rem;\r\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\r\n  z-index: 50;\r\n  border: 1px solid #ddd;\n}\n.search-select-search[data-v-5290aa7c] {\r\n  display: block;\r\n  margin-bottom: 0.5rem;\r\n  width: 100%;\r\n  padding: 0.38rem 0.7rem;\r\n  background-color: #fff;\r\n  color: #2A2D2E;\r\n  border-radius: 0;\r\n  border: 1px solid #ddd;\n}\n.search-select-search[data-v-5290aa7c]:focus {\r\n  outline: 0;\n}\n.search-select-options[data-v-5290aa7c] {\r\n  list-style: none;\r\n  padding: 0;\r\n  position: relative;\r\n  overflow-y: auto;\r\n  -webkit-overflow-scrolling: touch;\r\n  max-height: 14rem;\n}\n.search-select-option[data-v-5290aa7c] {\r\n  padding: 0.5rem 0.75rem;\r\n  color: #2A2D2E;\r\n  cursor: pointer;\r\n  border-radius: 0.25rem;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\n}\n.search-select-option[data-v-5290aa7c]:hover {\r\n  background-color: #432021;\r\n  color: #fff;\n}\n.search-select-option.is-active[data-v-5290aa7c],\r\n.search-select-option.is-active[data-v-5290aa7c]:hover {\r\n  background-color: #432021;\r\n  color: #fff;\n}\n.search-select-empty[data-v-5290aa7c] {\r\n  padding: 0.5rem 0.75rem;\r\n  color: #b8c2cc;\n}\r\n", ""]);
 
 // exports
 
@@ -40086,7 +40122,7 @@ if (false) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-4401901d\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/SearchBar.vue":
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-4401901d\",\"hasScoped\":true,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/SearchBar.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -40242,221 +40278,282 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.showSearch
-      ? _c(
-          "form",
-          {
-            ref: _vm.searchForm,
-            staticClass: "form",
-            attrs: { method: "get" }
-          },
-          [
-            _c("input", {
-              attrs: { type: "hidden", name: "q", value: "search" }
-            }),
-            _vm._v(" "),
-            _vm.searchTerms.sort
-              ? _c("input", {
-                  attrs: { type: "hidden", name: "sort" },
-                  domProps: { value: _vm.searchTerms.sort }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.searchTerms.minPrice && _vm.searchTerms.minPrice != "Any"
-              ? _c("input", {
-                  attrs: { type: "hidden", name: "minPrice" },
-                  domProps: { value: _vm.searchTerms.minPrice }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.searchTerms.maxPrice && _vm.searchTerms.maxPrice != "Any"
-              ? _c("input", {
-                  attrs: { type: "hidden", name: "maxPrice" },
-                  domProps: { value: _vm.searchTerms.maxPrice }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.searchTerms.beds && _vm.searchTerms.beds != "Any"
-              ? _c("input", {
-                  attrs: { type: "hidden", name: "beds" },
-                  domProps: { value: _vm.searchTerms.beds }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.searchTerms.baths && _vm.searchTerms.baths != "Any"
-              ? _c("input", {
-                  attrs: { type: "hidden", name: "baths" },
-                  domProps: { value: _vm.searchTerms.baths }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.searchTerms.sqft && _vm.searchTerms.sqft != "Any"
-              ? _c("input", {
-                  attrs: { type: "hidden", name: "sqft" },
-                  domProps: { value: _vm.searchTerms.sqft }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.searchTerms.acreage && _vm.searchTerms.acreage != "Any"
-              ? _c("input", {
-                  attrs: { type: "hidden", name: "acreage" },
-                  domProps: { value: _vm.searchTerms.acreage }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-sm-6 col-lg-3 my-2" },
-                [
-                  _c("label", [_vm._v("City / Area")]),
-                  _vm._v(" "),
-                  _c("area-field", {
-                    attrs: { "field-value": _vm.searchTerms.area }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-sm-6 col-lg-3 my-2" },
-                [
-                  _c("label", [_vm._v("Property Type")]),
-                  _vm._v(" "),
-                  _c("property-type", {
-                    attrs: { "field-value": _vm.searchTerms.propertyType }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm.advancedOpen
-                ? _c(
-                    "div",
-                    { staticClass: "col-6 col-md-4 col-lg-3" },
-                    [
-                      _c("min-price-field", {
-                        staticClass: "my-2",
-                        attrs: { "field-value": _vm.searchTerms.minPrice }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advancedOpen
-                ? _c(
-                    "div",
-                    { staticClass: "col-6 col-md-4 col-lg-3" },
-                    [
-                      _c("max-price-field", {
-                        staticClass: "my-2",
-                        attrs: { "field-value": _vm.searchTerms.maxPrice }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advancedOpen
-                ? _c(
-                    "div",
-                    { staticClass: "col-6 col-md-4 col-lg-3" },
-                    [
-                      _c("bedrooms-field", {
-                        staticClass: "my-2",
-                        attrs: { "field-value": _vm.searchTerms.beds }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advancedOpen
-                ? _c(
-                    "div",
-                    { staticClass: "col-6 col-md-4 col-lg-3" },
-                    [
-                      _c("bathrooms-field", {
-                        staticClass: "my-2",
-                        attrs: { "field-value": _vm.searchTerms.baths }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advancedOpen
-                ? _c(
-                    "div",
-                    { staticClass: "col-6 col-md-4 col-lg-3" },
-                    [
-                      _c("sqft-field", {
-                        staticClass: "my-2",
-                        attrs: { "field-value": _vm.searchTerms.sqft }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advancedOpen
-                ? _c(
-                    "div",
-                    { staticClass: "col-6 col-md-4 col-lg-3" },
-                    [
-                      _c("acreage-field", {
-                        staticClass: "my-2",
-                        attrs: { "field-value": _vm.searchTerms.acreage }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6 col-lg-3 mb-md-2 pt-md-3" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "btn btn-secondary dropdown-toggle btn-block mt-4",
-                    attrs: {
-                      type: "button",
-                      "aria-haspopup": "true",
-                      "aria-expanded": "false"
-                    },
-                    on: { click: _vm.toggleAdvanced }
+      ? _c("form", { staticClass: "form", attrs: { method: "get" } }, [
+          _c("input", {
+            attrs: { type: "hidden", name: "q", value: "search" }
+          }),
+          _vm._v(" "),
+          _vm.searchTerms.sort
+            ? _c("input", {
+                attrs: { type: "hidden", name: "sort" },
+                domProps: { value: _vm.searchTerms.sort }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.searchTerms.minPrice && _vm.searchTerms.minPrice != "Any"
+            ? _c("input", {
+                attrs: { type: "hidden", name: "minPrice" },
+                domProps: { value: _vm.searchTerms.minPrice }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.searchTerms.maxPrice && _vm.searchTerms.maxPrice != "Any"
+            ? _c("input", {
+                attrs: { type: "hidden", name: "maxPrice" },
+                domProps: { value: _vm.searchTerms.maxPrice }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.searchTerms.beds && _vm.searchTerms.beds != "Any"
+            ? _c("input", {
+                attrs: { type: "hidden", name: "beds" },
+                domProps: { value: _vm.searchTerms.beds }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.searchTerms.baths && _vm.searchTerms.baths != "Any"
+            ? _c("input", {
+                attrs: { type: "hidden", name: "baths" },
+                domProps: { value: _vm.searchTerms.baths }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.searchTerms.sqft && _vm.searchTerms.sqft != "Any"
+            ? _c("input", {
+                attrs: { type: "hidden", name: "sqft" },
+                domProps: { value: _vm.searchTerms.sqft }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.searchTerms.acreage && _vm.searchTerms.acreage != "Any"
+            ? _c("input", {
+                attrs: { type: "hidden", name: "acreage" },
+                domProps: { value: _vm.searchTerms.acreage }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "row justify-content-center" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-12 col-md-4 my-2",
+                class: {
+                  "col-xl": !_vm.advancedOpen,
+                  "col-xl-4": _vm.advancedOpen
+                }
+              },
+              [
+                _c("label", [_vm._v("MLS# / Address")]),
+                _vm._v(" "),
+                _c("omni-bar", {
+                  attrs: {
+                    options: _vm.omniTerms,
+                    "filter-function": _vm.applySearchFilter,
+                    "field-value": _vm.searchTerms.omni
                   },
-                  [_vm._v("Advanced Options")]
-                )
-              ]),
-              _vm._v(" "),
-              _vm._m(0)
-            ]),
+                  model: {
+                    value: _vm.omni,
+                    callback: function($$v) {
+                      _vm.omni = $$v
+                    },
+                    expression: "omni"
+                  }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("input", { attrs: { name: "page", value: "1", type: "hidden" } })
-          ]
-        )
+            _c(
+              "div",
+              {
+                staticClass: "col-sm-6 col-md-4 my-2",
+                class: {
+                  "col-xl": !_vm.advancedOpen,
+                  "col-xl-4": _vm.advancedOpen
+                }
+              },
+              [
+                _c("label", [_vm._v("City / Area")]),
+                _vm._v(" "),
+                _c("area-field", {
+                  attrs: { "field-value": _vm.searchTerms.area }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-sm-6 col-md-4 my-2",
+                class: {
+                  "col-xl": !_vm.advancedOpen,
+                  "col-xl-4": _vm.advancedOpen
+                }
+              },
+              [
+                _c("label", [_vm._v("Property Type")]),
+                _vm._v(" "),
+                _c("property-type", {
+                  attrs: { "field-value": _vm.searchTerms.propertyType }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm.advancedOpen
+              ? _c(
+                  "div",
+                  { staticClass: "col-6 col-md-4 col-lg-3" },
+                  [
+                    _c("min-price-field", {
+                      staticClass: "my-2",
+                      attrs: { "field-value": _vm.searchTerms.minPrice }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.advancedOpen
+              ? _c(
+                  "div",
+                  { staticClass: "col-6 col-md-4 col-lg-3" },
+                  [
+                    _c("max-price-field", {
+                      staticClass: "my-2",
+                      attrs: { "field-value": _vm.searchTerms.maxPrice }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.advancedOpen
+              ? _c(
+                  "div",
+                  { staticClass: "col-6 col-md-4 col-lg-3" },
+                  [
+                    _c("bedrooms-field", {
+                      staticClass: "my-2",
+                      attrs: { "field-value": _vm.searchTerms.beds }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.advancedOpen
+              ? _c(
+                  "div",
+                  { staticClass: "col-6 col-md-4 col-lg-3" },
+                  [
+                    _c("bathrooms-field", {
+                      staticClass: "my-2",
+                      attrs: { "field-value": _vm.searchTerms.baths }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.advancedOpen
+              ? _c(
+                  "div",
+                  { staticClass: "col-6 col-md-4 col-lg-3" },
+                  [
+                    _c("sqft-field", {
+                      staticClass: "my-2",
+                      attrs: { "field-value": _vm.searchTerms.sqft }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.advancedOpen
+              ? _c(
+                  "div",
+                  { staticClass: "col-6 col-md-4 col-lg-3" },
+                  [
+                    _c("acreage-field", {
+                      staticClass: "my-2",
+                      attrs: { "field-value": _vm.searchTerms.acreage }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col col-lg-6 mb-md-2 pt-md-3",
+                class: {
+                  "col-xl-auto": !_vm.advancedOpen,
+                  "col-xl-6": _vm.advancedOpen
+                }
+              },
+              [
+                _c("div", { staticClass: "row d-flex" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "col-auto col-sm-6 col-lg-auto",
+                      class: {
+                        "col-xl-auto": !_vm.advancedOpen,
+                        "col-xl-6": _vm.advancedOpen
+                      }
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "btn btn-secondary dropdown-toggle btn-block mt-4",
+                          attrs: {
+                            type: "button",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          },
+                          on: { click: _vm.toggleAdvanced }
+                        },
+                        [_vm._v("Advanced Options")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "col col-sm-6 col-lg",
+                      class: {
+                        "col-xl": !_vm.advancedOpen,
+                        "col-xl-6": _vm.advancedOpen
+                      }
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary btn-block mt-4",
+                          attrs: { type: "submit" }
+                        },
+                        [_vm._v("Search")]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("input", { attrs: { name: "page", value: "1", type: "hidden" } })
+        ])
       : _vm._e()
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6 col-lg-3 mb-2 pt-md-3" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary btn-block mt-4",
-          attrs: { type: "submit" }
-        },
-        [_vm._v("Search")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -40641,22 +40738,44 @@ var render = function() {
       "div",
       { staticClass: "search-select", class: { "is-active": _vm.isOpen } },
       [
-        _c(
-          "button",
-          {
-            ref: "button",
-            staticClass: "search-select-input",
-            attrs: { type: "button" },
-            on: { click: _vm.open }
-          },
-          [
-            _vm.value !== null
-              ? _c("span", [_vm._v(_vm._s(_vm.toTitleCase(_vm.value)))])
-              : _c("span", { staticClass: "search-select-placeholder" }, [
-                  _vm._v("Address, MLS, Area")
-                ])
-          ]
-        ),
+        _c("div", { staticClass: "d-flex" }, [
+          _c(
+            "button",
+            {
+              ref: "button",
+              staticClass: "search-select-input",
+              attrs: { type: "button" },
+              on: { click: _vm.open }
+            },
+            [
+              _vm.value !== null
+                ? _c("span", [_vm._v(_vm._s(_vm.toTitleCase(_vm.value)))])
+                : _c("span", { staticClass: "search-select-placeholder" }, [
+                    _vm._v("Address, MLS, Area")
+                  ])
+            ]
+          ),
+          _vm._v(" "),
+          _vm.search !== ""
+            ? _c(
+                "span",
+                {
+                  staticClass: "btn btn-secondary pointer",
+                  on: {
+                    click: function($event) {
+                      return _vm.clear()
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fa fa-times",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              )
+            : _vm._e()
+        ]),
         _vm._v(" "),
         _c(
           "div",
@@ -41891,6 +42010,33 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-41ed1e5e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./KMASliderModule.vue", function() {
      var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-41ed1e5e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./KMASliderModule.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4401901d\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SearchBar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4401901d\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SearchBar.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("4788446b", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4401901d\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SearchBar.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4401901d\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SearchBar.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -54874,17 +55020,21 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4401901d\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SearchBar.vue")
+}
 var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/SearchBar.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-4401901d\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/SearchBar.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-4401901d\",\"hasScoped\":true,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/SearchBar.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-4401901d"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
