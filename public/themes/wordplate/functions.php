@@ -59,23 +59,7 @@ add_filter('bladerunner/cache/path', function () {
 function quicksearch_func( $atts ){
     ob_start();
     ?>
-    <div class="quick-search p-4 p-sm-0 p-md-4 d-inline-block text-white">
-        <form action="property-search">
-        <input name="q" value="search" type="hidden" >
-        <div class="row align-items-center no-gutters">
-            <div class="col-12 col-sm-5 col-md-auto mb-2 pr-sm-2 pr-md-0">
-                <property-type></property-type>
-            </div>
-            <div class="d-none d-md-block col-auto mb-2 px-4"><span class="text-shadow">IN</span></div>
-            <div class="col-9 col-sm-5 col-md-auto mb-2 pr-4">
-                <area-field></area-field>
-            </div>
-            <div class="col-3 col-sm col-md-auto mb-2">
-                <button class="btn btn-block btn-primary">GO</button>
-            </div>
-        </div>
-        </form>
-    </div>
+    <quick-search></quick-search>
     <?php
 	return ob_get_clean();
 }

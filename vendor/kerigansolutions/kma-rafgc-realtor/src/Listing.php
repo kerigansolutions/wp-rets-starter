@@ -22,6 +22,11 @@ class Listing extends Mothership
         }
         return $this->listing;
     }
+    
+    public function set($mlsNumber)
+    {
+        $this->mlsNumber = $mlsNumber;
+    }
 
     public function getMlsNumber()
     {
@@ -191,7 +196,7 @@ class Listing extends Mothership
 
     public function setCanonical()
     {
-        return WP_HOME . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+        return $_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"];
     }
 
     public function metaDescription()
@@ -201,7 +206,7 @@ class Listing extends Mothership
         $pad = '...';
         $text = $this->listing->remarks;
 
-        if(false !== ($breakpoint = strpos($text, $break, $metaLength))) { 
+        if($metaLength < strlen($text) && ($breakpoint = strpos($text, $break, $metaLength) !== false)) { 
             if($breakpoint < strlen($text) - 1) { 
                 $text = substr($text, 0, $breakpoint) . $pad; 
             } 

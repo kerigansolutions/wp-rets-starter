@@ -25,5 +25,6 @@ Vue.component('property-type', require('./components/fields/PropertyType.vue'));
 Vue.component('area-field', require('./components/fields/Area.vue'));
 Vue.component('details-field', require('./components/fields/Details.vue'));
 Vue.component('search-bar', require('./components/SearchBar.vue'));
+Vue.component('quick-search', require('./components/QuickSearch.vue'));
 Vue.component('sort-form', require('./components/SortForm.vue'));
 Vue.component('video-bg', require('./components/VideoBackground.vue'));

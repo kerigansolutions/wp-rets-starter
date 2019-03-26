@@ -944,28 +944,26 @@ function load_script_textdomain( $handle, $domain = 'default', $path = null ) {
 	$content_url = wp_parse_url( content_url() );
 	$site_url    = wp_parse_url( site_url() );
 
-	if(isset($src_url['path']) && isset($content_url['path'])){
-		// If the host is the same or it's a relative URL.
-		if (
-			strpos( $src_url['path'], $content_url['path'] ) === 0 &&
-			( ! isset( $src_url['host'] ) || $src_url['host'] === $content_url['host'] )
-		) {
-			// Make the src relative the specific plugin or theme.
-			$relative = trim( substr( $src_url['path'], strlen( $content_url['path'] ) ), '/' );
-			$relative = explode( '/', $relative );
+	// If the host is the same or it's a relative URL.
+	if (
+		strpos( $src_url['path'], $content_url['path'] ) === 0 &&
+		( ! isset( $src_url['host'] ) || $src_url['host'] === $content_url['host'] )
+	) {
+		// Make the src relative the specific plugin or theme.
+		$relative = trim( substr( $src_url['path'], strlen( $content_url['path'] ) ), '/' );
+		$relative = explode( '/', $relative );
 
-			$languages_path = WP_LANG_DIR . '/' . $relative[0];
+		$languages_path = WP_LANG_DIR . '/' . $relative[0];
 
-			$relative = array_slice( $relative, 2 );
-			$relative = implode( '/', $relative );
-		} elseif ( ! isset( $src_url['host'] ) || $src_url['host'] === $site_url['host'] ) {
-			if ( ! isset( $site_url['path'] ) ) {
-				$relative = trim( $src_url['path'], '/' );
-			} elseif ( ( strpos( $src_url['path'], trailingslashit( $site_url['path'] ) ) === 0 ) ) {
-				// Make the src relative to the WP root.
-				$relative = substr( $src_url['path'], strlen( $site_url['path'] ) );
-				$relative = trim( $relative, '/' );
-			}
+		$relative = array_slice( $relative, 2 );
+		$relative = implode( '/', $relative );
+	} elseif ( ! isset( $src_url['host'] ) || $src_url['host'] === $site_url['host'] ) {
+		if ( ! isset( $site_url['path'] ) ) {
+			$relative = trim( $src_url['path'], '/' );
+		} elseif ( ( strpos( $src_url['path'], trailingslashit( $site_url['path'] ) ) === 0 ) ) {
+			// Make the src relative to the WP root.
+			$relative = substr( $src_url['path'], strlen( $site_url['path'] ) );
+			$relative = trim( $relative, '/' );
 		}
 	}
 

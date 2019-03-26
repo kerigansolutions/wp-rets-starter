@@ -2,6 +2,7 @@
     <div>
         <div v-if="!showSearch && !showSort" class="d-flex mb-4 justify-content-between align-items-center" >
             <div class="d-none d-md-block">
+                <span v-if="searchTerms.omni != null" class="mr-3 small text-muted">Keyword: <b>{{ searchTerms.omni }}</b></span>
                 <span v-if="searchTerms.area != 'Any'" class="mr-3 small text-muted">Area: <b>{{ searchTerms.area }}</b></span>
                 <span v-if="searchTerms.propertyType != 'Any'" class="mr-3 small text-muted">Type: <b>{{ searchTerms.propertyType }}</b></span>
                 <span v-if="(searchTerms.minPrice && searchTerms.minPrice != 'Any') || (searchTerms.maxPrice && searchTerms.maxPrice != 'Any')" class="mr-3 small text-muted">Price: 
@@ -99,14 +100,14 @@
 
                 <div class="col col-lg-6 mb-md-2 pt-md-3" v-bind:class="{ 'col-xl-auto': !advancedOpen, 'col-xl-6': advancedOpen }">
                     <div class="row d-flex">
-                        <div class="col-auto col-sm-6 col-lg-auto" v-bind:class="{ 'col-xl-auto': !advancedOpen, 'col-xl-6': advancedOpen }" >
+                        <div class="col col-sm-6 col-lg-auto" v-bind:class="{ 'col-xl-auto': !advancedOpen, 'col-xl-6': advancedOpen }" >
                             <button
                                 @click="toggleAdvanced"
                                 type="button"
                                 class="btn btn-secondary dropdown-toggle btn-block mt-4"
                                 aria-haspopup="true"
                                 aria-expanded="false"
-                                >Advanced Options</button>
+                                >Advanced</button>
                         </div>
                         
                         <div class="col col-sm-6 col-lg" v-bind:class="{ 'col-xl': !advancedOpen, 'col-xl-6': advancedOpen }" >
@@ -123,7 +124,12 @@
 
 <script>
     export default {
-        props: ['searchTerms'],
+        props: {
+            'searchTerms': {
+                type: Object,
+                default: {}
+            }
+        },
         data(){
             return {
                 omni: null,
@@ -132,13 +138,25 @@
                 mapViewSelected: false,
                 baseUrl: 'https://navica.kerigan.com/api/v1/omnibar',
                 showSearch: false,
-                showSort:false
+                showSort:false,
+                searchableFields: ['omni','area','propertyType','minPrice','maxPrice','sqft','acreage','beds','baths']
             }
         },
         created(){
             this.advancedOpen = false;
-            if(this.searchTerms.area == null){
-                this.showSearch = true;
+            this.showSearch = true;
+
+            if(
+                this.searchTerms.omni != '' || 
+                this.searchTerms.area != 'Any' ||
+                this.searchTerms.propertyType != 'Any' ||
+                this.searchTerms.minPrice != 'Any' ||
+                this.searchTerms.maxPrice != 'Any' ||
+                this.searchTerms.sqft != 'Any' ||
+                this.searchTerms.acreage != 'Any' ||
+                this.searchTerms.beds != 'Any' ||
+                this.searchTerms.baths != 'Any' ){
+                    this.showSearch = false
             }
         },
         watch: {

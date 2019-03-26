@@ -6454,6 +6454,78 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/QuickSearch.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        'searchTerms': {
+            type: Object,
+            default: {}
+        }
+    },
+    data: function data() {
+        return {
+            omni: null,
+            omniTerms: [],
+            baseUrl: 'https://navica.kerigan.com/api/v1/omnibar'
+        };
+    },
+
+    watch: {
+        omni: function omni(newOmni, oldOmni) {
+            if (newOmni.length > 2) {
+                this.search();
+            }
+        }
+    },
+    methods: {
+        applySearchFilter: function applySearchFilter(search, omniTerms) {
+            return omniTerms.filter(function (term) {
+                return term.value.toLowerCase().includes(search.toLowerCase());
+            });
+        },
+
+        search: _.debounce(function () {
+            console.log(this.omni);
+            var vm = this;
+            var config = {
+                method: 'get',
+                url: vm.baseUrl + '?search=' + vm.omni
+            };
+            axios(config).then(function (response) {
+                vm.omniTerms = response.data;
+            });
+        }, 100)
+    }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/SearchBar.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6582,9 +6654,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['searchTerms'],
+    props: {
+        'searchTerms': {
+            type: Object,
+            default: {}
+        }
+    },
     data: function data() {
         return {
             omni: null,
@@ -6593,13 +6671,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             mapViewSelected: false,
             baseUrl: 'https://navica.kerigan.com/api/v1/omnibar',
             showSearch: false,
-            showSort: false
+            showSort: false,
+            searchableFields: ['omni', 'area', 'propertyType', 'minPrice', 'maxPrice', 'sqft', 'acreage', 'beds', 'baths']
         };
     },
     created: function created() {
         this.advancedOpen = false;
-        if (this.searchTerms.area == null) {
-            this.showSearch = true;
+        this.showSearch = true;
+
+        if (this.searchTerms.omni != '' || this.searchTerms.area != 'Any' || this.searchTerms.propertyType != 'Any' || this.searchTerms.minPrice != 'Any' || this.searchTerms.maxPrice != 'Any' || this.searchTerms.sqft != 'Any' || this.searchTerms.acreage != 'Any' || this.searchTerms.beds != 'Any' || this.searchTerms.baths != 'Any') {
+            this.showSearch = false;
         }
     },
 
@@ -16848,6 +16929,21 @@ __webpack_require__("./node_modules/core-js/modules/web.timers.js");
 __webpack_require__("./node_modules/core-js/modules/web.immediate.js");
 __webpack_require__("./node_modules/core-js/modules/web.dom.iterable.js");
 module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1e8d4d72\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/QuickSearch.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.btn[data-v-1e8d4d72] {\n  font-size: .9rem;\n}\n", ""]);
+
+// exports
 
 
 /***/ }),
@@ -39284,6 +39380,75 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1e8d4d72\",\"hasScoped\":true,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/QuickSearch.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "quick-search w-100 p-4 p-sm-0 p-md-4 d-inline-block text-white"
+    },
+    [
+      _c("form", { attrs: { action: "property-search" } }, [
+        _c("input", { attrs: { name: "q", value: "search", type: "hidden" } }),
+        _vm._v(" "),
+        _c("div", { staticClass: "row d-flex align-items-center" }, [
+          _c(
+            "div",
+            { staticClass: "col-12 col-md mb-2 flex-grow-1" },
+            [
+              _c("omni-bar", {
+                attrs: {
+                  options: _vm.omniTerms,
+                  "filter-function": _vm.applySearchFilter,
+                  "field-value": ""
+                },
+                model: {
+                  value: _vm.omni,
+                  callback: function($$v) {
+                    _vm.omni = $$v
+                  },
+                  expression: "omni"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 col-md-auto mb-2" }, [
+      _c("button", { staticClass: "btn btn-block btn-primary" }, [
+        _vm._v("SEARCH")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1e8d4d72", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-288342ca\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./node_modules/vue-invisible-recaptcha/src/InvisibleRecaptcha.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -40139,6 +40304,13 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "d-none d-md-block" }, [
+              _vm.searchTerms.omni != null
+                ? _c("span", { staticClass: "mr-3 small text-muted" }, [
+                    _vm._v("Keyword: "),
+                    _c("b", [_vm._v(_vm._s(_vm.searchTerms.omni))])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
               _vm.searchTerms.area != "Any"
                 ? _c("span", { staticClass: "mr-3 small text-muted" }, [
                     _vm._v("Area: "),
@@ -40499,7 +40671,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "col-auto col-sm-6 col-lg-auto",
+                      staticClass: "col col-sm-6 col-lg-auto",
                       class: {
                         "col-xl-auto": !_vm.advancedOpen,
                         "col-xl-6": _vm.advancedOpen
@@ -40518,7 +40690,7 @@ var render = function() {
                           },
                           on: { click: _vm.toggleAdvanced }
                         },
-                        [_vm._v("Advanced Options")]
+                        [_vm._v("Advanced")]
                       )
                     ]
                   ),
@@ -40803,7 +40975,7 @@ var render = function() {
               ],
               ref: "search",
               staticClass: "search-select-search",
-              attrs: { name: "omni", autocomplete: "off" },
+              attrs: { name: "omni", autocomplete: "off", id: "omni-field" },
               domProps: { value: _vm.search },
               on: {
                 keydown: function($event) {
@@ -41963,6 +42135,33 @@ VueMasonryPlugin.install = function (Vue, options) {
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1e8d4d72\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/QuickSearch.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1e8d4d72\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/QuickSearch.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("5d9d211f", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1e8d4d72\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./QuickSearch.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1e8d4d72\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./QuickSearch.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ }),
 
@@ -55016,6 +55215,58 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/scripts/components/QuickSearch.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1e8d4d72\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/QuickSearch.vue")
+}
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/QuickSearch.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1e8d4d72\",\"hasScoped\":true,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/QuickSearch.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-1e8d4d72"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/scripts/components/QuickSearch.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1e8d4d72", Component.options)
+  } else {
+    hotAPI.reload("data-v-1e8d4d72", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/scripts/components/SearchBar.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -55930,6 +56181,7 @@ Vue.component('property-type', __webpack_require__("./resources/assets/scripts/c
 Vue.component('area-field', __webpack_require__("./resources/assets/scripts/components/fields/Area.vue"));
 Vue.component('details-field', __webpack_require__("./resources/assets/scripts/components/fields/Details.vue"));
 Vue.component('search-bar', __webpack_require__("./resources/assets/scripts/components/SearchBar.vue"));
+Vue.component('quick-search', __webpack_require__("./resources/assets/scripts/components/QuickSearch.vue"));
 Vue.component('sort-form', __webpack_require__("./resources/assets/scripts/components/SortForm.vue"));
 Vue.component('video-bg', __webpack_require__("./resources/assets/scripts/components/VideoBackground.vue"));
 

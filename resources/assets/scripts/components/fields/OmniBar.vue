@@ -23,7 +23,7 @@
                 v-model="search"
                 @keydown.esc="close"
                 autocomplete="off"
-
+                id="omni-field"
             >
             <ul ref="options" v-show="filteredOptions.length > 0" class="search-select-options">
                 <li

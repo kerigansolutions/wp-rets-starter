@@ -13105,15 +13105,14 @@ body #app .site-wrapper.full-height {
   z-index: 6;
   position: fixed;
   width: 100%;
-  background-color: #fff;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 #app .top .logo {
-  color: #333333;
+  color: #fff;
   justify-content: center;
   padding: 1rem 0;
   margin: 0 auto;
+  min-width: 200px;
 }
 
 #app .top .contact-nav {
@@ -13133,14 +13132,14 @@ body #app .site-wrapper.full-height {
   display: inline-block;
   padding: .5rem;
   margin: 0 .5rem 0 0;
-  background-color: #fd7e14;
+  background-color: #17a2b8;
   font-size: 1rem;
   color: #fff;
 }
 
 @media screen and (min-width: 993px) {
   #app .top .contact-nav a {
-    color: #fd7e14;
+    color: #fff;
     background-color: transparent;
   }
 }
@@ -13150,7 +13149,7 @@ body #app .site-wrapper.full-height {
 }
 
 #app .top .topnav a.nav-link {
-  color: #333333;
+  color: #fff;
   padding: .25rem .75rem;
 }
 
@@ -13197,12 +13196,22 @@ ul.navbar-nav li a {
   transition: all .5s linear;
 }
 
-.mobile-menu-open .top .topnav,
-.scrolling .top .topnav {
-  list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.mobile-menu-open .top,
+.scrolling .top {
+  background-color: #333333;
+}
+
+.mobile-menu-open .top .logo,
+.scrolling .top .logo {
+  display: none !important;
+  padding: 0;
+}
+
+@media screen and (min-width: 993px) {
+  .mobile-menu-open .top .logo,
+  .scrolling .top .logo {
+    display: block !important;
+  }
 }
 
 .mobile-menu-open .mobile-menu,
@@ -13676,7 +13685,7 @@ footer .siteby {
   right: 0;
   bottom: 0;
   top: 0;
-  z-index: 5;
+  z-index: 4;
 }
 
 #app .listing .listing-link:hover {
